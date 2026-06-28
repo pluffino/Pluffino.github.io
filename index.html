@@ -101,6 +101,37 @@ h1 {
 .view-btn:hover {
     background: #d600aa;
 }
+    .tools-section{
+    width:90%;
+    max-width:1000px;
+    margin:60px auto;
+    padding:30px 20px;
+
+    background:rgba(255,255,255,0.05);
+
+    border:1px solid #BB66FF;
+    border-radius:20px;
+
+    box-shadow:0 0 20px rgba(255,0,204,0.35);
+}
+
+.tools-title{
+    color:#FF00CC;
+    text-shadow:0 0 10px #FF00CC;
+    margin-bottom:10px;
+}
+
+.tools-subtitle{
+    color:#CCCCCC;
+    margin-bottom:30px;
+}
+
+.tools-grid{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:20px;
+}
 </style>
 
 </head>
@@ -150,11 +181,15 @@ Gaming Guides, Secrets, Addons & Tutorials
         <p>Guides and gameplay tips.</p>
         <a class="view-btn" href="Minecraft.html">View Guides</a>
     </div>
-    <h2 style="margin-top:60px;color:#FF00CC;text-shadow:0 0 10px #FF00CC;">
-🛠 Gaming Tools & Tips
-</h2>
+    <div class="tools-section">
 
-<div class="games-container">
+<h2 class="tools-title">🛠 Gaming Tools & Tips</h2>
+
+<p class="tools-subtitle">
+Useful tools and guides that work with almost every mobile game.
+</p>
+
+<div class="tools-grid">
 
 <div class="game-card">
 <img src="gamebooster.png">
@@ -186,7 +221,8 @@ Gaming Guides, Secrets, Addons & Tutorials
 
 </div>
 
-</div>
+    </div>
+
 
 </body>
 </html>
