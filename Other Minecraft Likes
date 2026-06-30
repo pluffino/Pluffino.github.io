@@ -1,0 +1,105 @@
+<html>
+
+<head>
+
+<title>Other Games Like Minecraft</title>
+
+<style>
+
+body {
+    background-image:
+    linear-gradient(rgba(0,0,0,0.7),
+    rgba(0,0,0,0.7)),
+    url('d756804e-32b5-4997-a4bb-74c7b04e7f3f.png');
+
+    background-size: cover;
+    background-position: center;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    color: #ff00cc;
+    text-shadow: 0 0 10px #ff00cc;
+}
+
+.article-card {
+    width: 80%;
+    max-width: 500px;
+
+    margin: 20px auto;
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    background: rgba(255,255,255,0.08);
+
+    border: 1px solid #ff00cc;
+
+    box-shadow: 0 0 15px rgba(255,0,204,0.4);
+}
+
+.read-btn {
+
+    display: inline-block;
+
+    margin-top: 10px;
+
+    padding: 10px 20px;
+
+    background: #ff00cc;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 10px;
+}
+
+.read-btn:hover {
+    background: #d600aa;
+}
+
+.back-home {
+    color: #ff66ff;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>🎮 Minecraft Guides</h1>
+
+<div class="article-card">
+<h2>How To Make Money Using Minecraft</h2>
+<p>Marketplace, servers, building and tournaments.</p>
+<a class="read-btn" href="make-money-minecraft.html">
+Read Guide
+</a>
+</div>
+
+<div class="article-card">
+<h2>Why Minecraft Bedrock Has Less Downloads Than Its Copies</h2>
+<p>Why free alternatives attract so many players.</p>
+<a class="read-btn" href="why-minecraft-has-fewer-downloads.html">
+Read Guide
+</a>
+</div>
+
+<div class="article-card">
+<h2>Top 5 Minecraft Building Tips For Beginners</h2>
+<p>Simple tricks to improve your builds quickly.</p>
+<a class="read-btn" href="why-minecraft-is-still-king.html">
+Read Guide
+</a>
+</div>
+
+<br>
+
+<a class="back-home" href="index.html">
+← Back To Home
+</a>
