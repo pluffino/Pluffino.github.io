@@ -50,7 +50,8 @@
     </div>
 
 </div>
-    <div class="step-box">
+    <div class="step active" id="step1">
+<div class="step-box">
 
         <h2>Step 1 • Basic Information</h2>
 
@@ -108,53 +109,40 @@
 
         <label>▶ YouTube Video Link</label>
         <input type="url" placeholder="https://youtube.com/...">
+    </div>
+    </div>
+<div class="step" id="step2">
 
-        <h2>Step 2 • Content</h2>
+<div class="step-box">
+
+<h2>Step 2 • Content</h2>
 
 <label>📂 Subject</label>
 
-<select>
+<select id="subject">
+
+<option value="">Select Subject</option>
 
 <option>Review</option>
-
 <option>Gameplay</option>
-
 <option>Tutorial</option>
-
 <option>Tips & Tricks</option>
-
 <option>Challenge</option>
-
-<option>Speedrun</option>
-
 <option>Crate Opening</option>
-
 <option>Bugs & Glitches</option>
-
 <option>Comparison</option>
-
 <option>News</option>
-
-<option>Update</option>
-
 <option>Other</option>
 
 </select>
 
-<label>✍ Describe It</label>
+<label>✍ Tell Your Story</label>
 
-<textarea
-placeholder="Tell readers what happened in your video.
-
-• What did you do?
-• What did you discover?
-• Did something funny happen?
-• What should players know?">
-</textarea>
+<textarea id="story"></textarea>
 
 <div class="buttons">
 
-<button class="back-btn">
+<button class="back-btn" onclick="previousStep()">
 ← Back
 </button>
 
@@ -166,6 +154,6 @@ Next →
 
 </div>
 
-</body>
+</div>
 
-</html>
+
