@@ -171,3 +171,108 @@ footer{
     border-top:1px solid rgba(255,255,255,0.15);
     font-size:14px;
 }
+/* ===========================
+   CREATE ARTICLE PAGE
+=========================== */
+
+.creator-container{
+
+    width:90%;
+    max-width:850px;
+
+    margin:50px auto;
+
+    padding:40px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid #BB66FF;
+
+    border-radius:20px;
+
+    box-shadow:0 0 20px rgba(255,0,204,.35);
+
+}
+
+.step-box{
+
+    text-align:left;
+
+    margin-top:30px;
+
+}
+
+.step-box h2{
+
+    text-align:center;
+
+    color:#FF00CC;
+
+    margin-bottom:30px;
+
+}
+
+.step-box label{
+
+    display:block;
+
+    margin-top:18px;
+
+    margin-bottom:8px;
+
+    font-weight:bold;
+
+}
+
+.step-box input,
+.step-box select{
+
+    width:100%;
+
+    padding:14px;
+
+    border-radius:12px;
+
+    border:none;
+
+    background:#222;
+
+    color:white;
+
+    font-size:16px;
+
+    box-sizing:border-box;
+
+}
+
+.next-btn{
+
+    margin-top:35px;
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#FF00CC;
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.next-btn:hover{
+
+    background:#d600aa;
+
+}
