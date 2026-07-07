@@ -276,3 +276,92 @@ footer{
     background:#d600aa;
 
 }
+/* ===========================
+   Progress Bar
+=========================== */
+
+.progress-container{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin:40px 0;
+
+    flex-wrap:wrap;
+
+}
+
+.progress-step{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    color:#888;
+
+    font-size:14px;
+
+    font-weight:bold;
+
+}
+
+.circle{
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    border:2px solid #666;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin-bottom:8px;
+
+    background:#222;
+
+    transition:.3s;
+
+}
+
+.progress-step.active{
+
+    color:#FFD700;
+
+}
+
+.progress-step.active .circle{
+
+    background:#FFD700;
+
+    color:black;
+
+    border-color:#FFD700;
+
+    box-shadow:0 0 15px gold;
+
+}
+
+.line{
+
+    width:70px;
+
+    height:3px;
+
+    background:#555;
+
+    margin:0 15px;
+
+    margin-bottom:28px;
+
+}
