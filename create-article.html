@@ -52,7 +52,13 @@
 </div>
     <div class="step active" id="step1">
 <div class="step-box">
+<div class="success-message" id="successMessage">
 
+✅ Basic Information Complete!
+
+Moving to Content...
+
+</div>
         <h2>Step 1 • Basic Information</h2>
 
         <label>🖼 Thumbnail</label>
@@ -110,6 +116,85 @@
         <label>▶ YouTube Video Link</label>
         <input type="url" placeholder="https://youtube.com/...">
     </div>
+    <script>
+
+function nextStep(){
+
+const title=document.querySelector('input[placeholder="Example: Lokicraft 7 Review"]');
+
+const game=document.querySelector('input[placeholder="Lokicraft 7"]');
+
+const video=document.querySelector('input[type="url"]');
+
+if(title.value==""){
+
+alert("Please enter an Article Title.");
+
+return;
+
+}
+
+if(game.value==""){
+
+alert("Please enter the Game Name.");
+
+return;
+
+}
+
+if(video.value==""){
+
+alert("Please enter your YouTube Video Link.");
+
+return;
+
+}
+
+document.getElementById("successMessage").style.display="block";
+
+setTimeout(function(){
+
+document.getElementById("successMessage").style.display="none";
+
+document.getElementById("step1").classList.remove("active");
+
+document.getElementById("step2").classList.add("active");
+
+updateProgress(2);
+
+},700);
+
+}
+
+function previousStep(){
+
+document.getElementById("step2").classList.remove("active");
+
+document.getElementById("step1").classList.add("active");
+
+updateProgress(1);
+
+}
+
+function updateProgress(step){
+
+const steps=document.querySelectorAll(".progress-step");
+
+steps.forEach((item,index)=>{
+
+item.classList.remove("active");
+
+if(index<step){
+
+item.classList.add("active");
+
+}
+
+});
+
+}
+
+</script>
     </div>
 <div class="step" id="step2">
 
@@ -146,7 +231,7 @@
 ← Back
 </button>
 
-<button class="next-btn">
+<button class="next-btn" onclick="nextStep()">
 Next →
 </button>
 
