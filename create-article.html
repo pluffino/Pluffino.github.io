@@ -324,7 +324,197 @@ class="publish-btn">
 
 </div>
 
-<!-- JavaScript goes here in Part 3 -->
+<script>
+
+// =========================
+// Current Step
+// =========================
+
+let currentStep = 1;
+
+// =========================
+// Show Step
+// =========================
+
+function showStep(step){
+
+    document.querySelectorAll(".step").forEach(function(page){
+
+        page.classList.remove("active");
+
+    });
+
+    document.getElementById("step"+step).classList.add("active");
+
+    updateProgress(step);
+
+    currentStep = step;
+
+}
+
+// =========================
+// Progress Bar
+// =========================
+
+function updateProgress(step){
+
+    const steps = document.querySelectorAll(".progress-step");
+
+    steps.forEach(function(item,index){
+
+        item.classList.remove("active");
+
+        if(index < step){
+
+            item.classList.add("active");
+
+        }
+
+    });
+
+}
+
+// =========================
+// Step 1 Validation
+// =========================
+
+function nextStep(){
+
+    const title = document.getElementById("articleTitle");
+
+    const game = document.getElementById("gameName");
+
+    const category = document.getElementById("category");
+
+    const video = document.getElementById("videoLink");
+
+    if(title.value.trim()==""){
+
+        alert("Please enter an Article Title.");
+
+        return;
+
+    }
+
+    if(game.value.trim()==""){
+
+        alert("Please enter the Game Name.");
+
+        return;
+
+    }
+
+    if(category.value==""){
+
+        alert("Please select a Category.");
+
+        return;
+
+    }
+
+    if(video.value.trim()==""){
+
+        alert("Please enter your Video Link.");
+
+        return;
+
+    }
+
+    showStep(2);
+
+}
+
+// =========================
+// Step 2 Validation
+// =========================
+
+function goToStep3(){
+
+    const subject = document.getElementById("subject");
+
+    const story = document.getElementById("story");
+
+    if(subject.value==""){
+
+        alert("Please select a Subject.");
+
+        return;
+
+    }
+
+    if(story.value.trim()==""){
+
+        alert("Please describe your content.");
+
+        return;
+
+    }
+
+    showStep(3);
+
+}
+
+// =========================
+// Review Toggle
+// =========================
+
+function toggleReview(){
+
+    const review = document.getElementById("reviewSection");
+
+    if(document.getElementById("reviewMode").checked){
+
+        review.style.display="block";
+
+    }
+
+    else{
+
+        review.style.display="none";
+
+    }
+
+}
+
+// =========================
+// Step Navigation
+// =========================
+
+function previousStep(){
+
+    showStep(1);
+
+}
+
+function backToStep2(){
+
+    showStep(2);
+
+}
+
+function goToStep4(){
+
+    showStep(4);
+
+}
+
+function backToStep3(){
+
+    showStep(3);
+
+}
+
+// =========================
+// Publish
+// =========================
+
+document.querySelector(".publish-btn").addEventListener("click",function(){
+
+    alert("🎉 Congratulations!\n\nPhase 4 will generate the article automatically.\n\nComing soon.");
+
+});
+
+                           </script><!-- JavaScript goes here in Part 3 -->
 
 </body>
 
