@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Pluffino Studio - Create Article</title>
+<title>Pluffino Studio</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -16,186 +16,132 @@
 
 <div class="creator-container">
 
-    <h1>🚀 Pluffino Studio</h1>
+<h1>🚀 Pluffino Studio</h1>
 
-    <p class="subtitle">
-        Create a brand new article for Pluffino Gaming Hub
-    </p>
+<p class="subtitle">
+Create a brand new article for Pluffino Gaming Hub
+</p>
+
+<!-- Progress Bar -->
+
 <div class="progress-container">
 
-    <div class="progress-step active">
-        <div class="circle">1</div>
-        <span>Basic Info</span>
-    </div>
+<div class="progress-step active">
+<div class="circle">1</div>
+<span>Basic Info</span>
+</div>
 
-    <div class="line"></div>
+<div class="line"></div>
 
-    <div class="progress-step">
-        <div class="circle">2</div>
-        <span>Write</span>
-    </div>
+<div class="progress-step">
+<div class="circle">2</div>
+<span>Content</span>
+</div>
 
-    <div class="line"></div>
+<div class="line"></div>
 
-    <div class="progress-step">
-        <div class="circle">3</div>
-        <span>Ratings</span>
-    </div>
+<div class="progress-step">
+<div class="circle">3</div>
+<span>Details</span>
+</div>
 
-    <div class="line"></div>
+<div class="line"></div>
 
-    <div class="progress-step">
-        <div class="circle">4</div>
-        <span>Preview</span>
-    </div>
+<div class="progress-step">
+<div class="circle">4</div>
+<span>Publish</span>
+</div>
 
 </div>
-    <div class="step active" id="step1">
+
+<!-- ========================= -->
+<!-- STEP 1 -->
+<!-- ========================= -->
+
+<div class="step active" id="step1">
+
 <div class="step-box">
-<div class="success-message" id="successMessage">
 
-✅ Basic Information Complete!
+<h2>Step 1 • Basic Information</h2>
 
-Moving to Content...
+<label>🖼 Thumbnail</label>
 
-</div>
-        <h2>Step 1 • Basic Information</h2>
+<input id="thumbnail" type="file">
 
-        <label>🖼 Thumbnail</label>
-        <input type="file">
+<label>📝 Article Title</label>
 
-        <label>📝 Article Title</label>
-        <input type="text" placeholder="Example: Lokicraft 7 Review">
+<input
+id="articleTitle"
+type="text"
+placeholder="Example: Lokicraft 7 Review">
 
-        <label>🎮 Game Name</label>
-        <input type="text" placeholder="Lokicraft 7">
+<label>🎮 Game Name</label>
 
-        <label>📂 Category</label>
+<input
+id="gameName"
+type="text"
+placeholder="Lokicraft 7">
 
-<select>
+<label>📂 Category</label>
 
-    <option>Action</option>
+<select id="category">
 
-    <option>Adventure</option>
+<option value="">Select Category</option>
 
-    <option>Battle Royale</option>
-
-    <option>Building & Sandbox</option>
-
-    <option>Casual</option>
-
-    <option>Fighting</option>
-
-    <option>Horror</option>
-
-    <option>Open World</option>
-
-    <option>Puzzle</option>
-
-    <option>Racing</option>
-
-    <option>RPG</option>
-
-    <option>Shooter</option>
-
-    <option>Simulation</option>
-
-    <option>Sports</option>
-
-    <option>Strategy</option>
-
-    <option>Survival</option>
-
-    <option>Other</option>
+<option>Action</option>
+<option>Adventure</option>
+<option>Battle Royale</option>
+<option>Building & Sandbox</option>
+<option>Casual</option>
+<option>Fighting</option>
+<option>Horror</option>
+<option>Open World</option>
+<option>Puzzle</option>
+<option>Racing</option>
+<option>RPG</option>
+<option>Shooter</option>
+<option>Simulation</option>
+<option>Sports</option>
+<option>Strategy</option>
+<option>Survival</option>
+<option>Other</option>
 
 </select>
 
-        <label>📱 Device (Optional)</label>
-        <input type="text" placeholder="Samsung Galaxy A15">
+<label>📱 Device (Optional)</label>
 
-        <label>▶ YouTube Video Link</label>
-        <input type="url" placeholder="https://youtube.com/...">
-    </div>
-    <script>
+<input
+id="device"
+type="text"
+placeholder="Samsung Galaxy A15">
 
-function nextStep(){
+<label>▶ Video Link</label>
 
-const title=document.querySelector('input[placeholder="Example: Lokicraft 7 Review"]');
+<input
+id="videoLink"
+type="url"
+placeholder="https://youtube.com/...">
 
-const game=document.querySelector('input[placeholder="Lokicraft 7"]');
+<div class="buttons">
 
-const video=document.querySelector('input[type="url"]');
+<button
+class="next-btn"
+onclick="nextStep()">
 
-if(title.value==""){
+Next →
 
-alert("Please enter an Article Title.");
+</button>
 
-return;
+</div>
 
-}
+</div>
 
-if(game.value==""){
+</div>
 
-alert("Please enter the Game Name.");
+<!-- ========================= -->
+<!-- STEP 2 -->
+<!-- ========================= -->
 
-return;
-
-}
-
-if(video.value==""){
-
-alert("Please enter your YouTube Video Link.");
-
-return;
-
-}
-
-document.getElementById("successMessage").style.display="block";
-
-setTimeout(function(){
-
-document.getElementById("successMessage").style.display="none";
-
-document.getElementById("step1").classList.remove("active");
-
-document.getElementById("step2").classList.add("active");
-
-updateProgress(2);
-
-},700);
-
-}
-
-function previousStep(){
-
-document.getElementById("step2").classList.remove("active");
-
-document.getElementById("step1").classList.add("active");
-
-updateProgress(1);
-
-}
-
-function updateProgress(step){
-
-const steps=document.querySelectorAll(".progress-step");
-
-steps.forEach((item,index)=>{
-
-item.classList.remove("active");
-
-if(index<step){
-
-item.classList.add("active");
-
-}
-
-});
-
-}
-
-</script>
-    </div>
 <div class="step" id="step2">
 
 <div class="step-box">
@@ -221,18 +167,29 @@ item.classList.add("active");
 
 </select>
 
-<label>✍ Tell Your Story</label>
+<label>✍ Describe It</label>
 
-<textarea id="story"></textarea>
+<textarea
+id="story"
+rows="10"
+placeholder="Describe your experience..."></textarea>
 
 <div class="buttons">
 
-<button class="back-btn" onclick="previousStep()">
+<button
+class="back-btn"
+onclick="previousStep()">
+
 ← Back
+
 </button>
 
-<button class="next-btn" onclick="nextStep()">
+<button
+class="next-btn"
+onclick="goToStep3()">
+
 Next →
+
 </button>
 
 </div>
@@ -240,7 +197,11 @@ Next →
 </div>
 
 </div>
-    
+
+<!-- ========================= -->
+<!-- STEP 3 -->
+<!-- ========================= -->
+
 <div class="step" id="step3">
 
 <div class="step-box">
@@ -248,51 +209,50 @@ Next →
 <h2>Step 3 • Article Details</h2>
 
 <label>
-<input type="checkbox" id="reviewMode" onchange="toggleReview()">
+
+<input
+type="checkbox"
+id="reviewMode"
+onchange="toggleReview()">
+
 This is a Review Article
+
 </label>
 
-<div id="reviewSection" style="display:none;">
-
-<br>
+<div id="reviewSection">
 
 <label>⭐ Overall Rating</label>
 
 <select id="rating">
+
 <option value="">Select Rating</option>
+
 <option>⭐☆☆☆☆ (1/5)</option>
 <option>⭐⭐☆☆☆ (2/5)</option>
 <option>⭐⭐⭐☆☆ (3/5)</option>
 <option>⭐⭐⭐⭐☆ (4/5)</option>
 <option>⭐⭐⭐⭐⭐ (5/5)</option>
-</select>
 
-<br><br>
+</select>
 
 <label>✅ Pros</label>
 
-<textarea placeholder="Example:
-• Smooth gameplay
-• Great graphics"></textarea>
-
-<br><br>
+<textarea
+id="pros"
+rows="5"></textarea>
 
 <label>❌ Cons</label>
 
-<textarea placeholder="Example:
-• Too many ads
-• Battery drain"></textarea>
-
-<br><br>
+<textarea
+id="cons"
+rows="5"></textarea>
 
 <label>🎮 Worth Playing?</label>
 
-<select>
+<select id="worthPlaying">
 
 <option>Yes</option>
-
 <option>No</option>
-
 <option>Depends</option>
 
 </select>
@@ -301,13 +261,17 @@ This is a Review Article
 
 <div class="buttons">
 
-<button class="back-btn" onclick="backToStep2()">
+<button
+class="back-btn"
+onclick="backToStep2()">
 
 ← Back
 
 </button>
 
-<button class="next-btn">
+<button
+class="next-btn"
+onclick="goToStep4()">
 
 Next →
 
@@ -317,43 +281,53 @@ Next →
 
 </div>
 
-    </div>
-function toggleReview(){
+</div>
 
-const review=document.getElementById("reviewSection");
+<!-- ========================= -->
+<!-- STEP 4 -->
+<!-- ========================= -->
 
-const check=document.getElementById("reviewMode");
+<div class="step" id="step4">
 
-if(check.checked){
+<div class="step-box">
 
-review.style.display="block";
+<h2>🎉 Preview & Publish</h2>
 
-}else{
+<p>
 
-review.style.display="none";
+Phase 4 will generate the article preview here.
 
-}
+</p>
 
-}
+<div class="buttons">
 
-function goToStep3(){
+<button
+class="back-btn"
+onclick="backToStep3()">
 
-document.getElementById("step2").classList.remove("active");
+← Back
 
-document.getElementById("step3").classList.add("active");
+</button>
 
-updateProgress(3);
+<button
+class="publish-btn">
 
-}
+🚀 Publish Article
 
-function backToStep2(){
+</button>
 
-document.getElementById("step3").classList.remove("active");
+</div>
 
-document.getElementById("step2").classList.add("active");
+</div>
 
-updateProgress(2);
+</div>
 
-}
+</div>
+
+<!-- JavaScript goes here in Part 3 -->
+
+</body>
+
+    </html>
 
 
