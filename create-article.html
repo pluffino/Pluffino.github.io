@@ -286,33 +286,75 @@ Next →
 <!-- ========================= -->
 <!-- STEP 4 -->
 <!-- ========================= -->
-
 <div class="step" id="step4">
 
 <div class="step-box">
 
-<h2>🎉 Preview & Publish</h2>
+<h2>👀 Preview & Publish</h2>
 
-<p>
+<div id="previewCard">
 
-Phase 4 will generate the article preview here.
+<h3 id="previewTitle"></h3>
 
-</p>
+<p><b>Game:</b> <span id="previewGame"></span></p>
+
+<p><b>Category:</b> <span id="previewCategory"></span></p>
+
+<p><b>Device:</b> <span id="previewDevice"></span></p>
+
+<p><b>Video:</b></p>
+
+<p id="previewVideo"></p>
+
+<hr>
+
+<h3>Subject</h3>
+
+<p id="previewSubject"></p>
+
+<hr>
+
+<h3>Description</h3>
+
+<p id="previewStory"></p>
+
+<div id="reviewPreview">
+
+<hr>
+
+<h3>Review</h3>
+
+<p id="previewRating"></p>
+
+<h4>Pros</h4>
+
+<p id="previewPros"></p>
+
+<h4>Cons</h4>
+
+<p id="previewCons"></p>
+
+<h4>Worth Playing?</h4>
+
+<p id="previewWorth"></p>
+
+</div>
+
+</div>
 
 <div class="buttons">
 
-<button
-class="back-btn"
+<button class="back-btn"
 onclick="backToStep3()">
 
 ← Back
 
 </button>
 
-<button
-class="publish-btn">
+<button class="publish-btn"
+onclick="publishArticle()">
 
-🚀 Publish Article
+🚀 Publish
 
 </button>
 
@@ -494,7 +536,50 @@ function backToStep2(){
 
 function goToStep4(){
 
-    showStep(4);
+document.getElementById("previewTitle").innerText=
+document.getElementById("articleTitle").value;
+
+document.getElementById("previewGame").innerText=
+document.getElementById("gameName").value;
+
+document.getElementById("previewCategory").innerText=
+document.getElementById("category").value;
+
+document.getElementById("previewDevice").innerText=
+document.getElementById("device").value || "Not specified";
+
+document.getElementById("previewVideo").innerText=
+document.getElementById("videoLink").value;
+
+document.getElementById("previewSubject").innerText=
+document.getElementById("subject").value;
+
+document.getElementById("previewStory").innerText=
+document.getElementById("story").value;
+
+if(document.getElementById("reviewMode").checked){
+
+document.getElementById("reviewPreview").style.display="block";
+
+document.getElementById("previewRating").innerText=
+document.getElementById("rating").value;
+
+document.getElementById("previewPros").innerText=
+document.getElementById("pros").value;
+
+document.getElementById("previewCons").innerText=
+document.getElementById("cons").value;
+
+document.getElementById("previewWorth").innerText=
+document.getElementById("worthPlaying").value;
+
+}else{
+
+document.getElementById("reviewPreview").style.display="none";
+
+}
+
+showStep(4);
 
 }
 
@@ -510,9 +595,11 @@ function backToStep3(){
 
 document.querySelector(".publish-btn").addEventListener("click",function(){
 
-    alert("🎉 Congratulations!\n\nPhase 4 will generate the article automatically.\n\nComing soon.");
+function publishArticle(){
 
-});
+alert("🎉 Article Published!\n\nLater this button will automatically generate your article page.");
+
+}
 
                            </script><!-- JavaScript goes here in Part 3 -->
 
