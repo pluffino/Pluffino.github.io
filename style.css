@@ -562,3 +562,183 @@ h1{
     letter-spacing:1px;
 
             }
+/*======================================
+        PLUFFINO V2 - PART 4
+     Footer + Animations + Mobile
+======================================*/
+
+/* ---------- Footer ---------- */
+
+footer{
+
+    margin-top:80px;
+
+    padding:35px 20px;
+
+    background:rgba(0,0,0,.35);
+
+    border-top:1px solid #BB66FF;
+
+}
+
+footer p{
+
+    color:#BBBBBB;
+
+    font-size:15px;
+
+    letter-spacing:1px;
+
+}
+
+/* ---------- Fade Animation ---------- */
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+header,
+.games-container,
+.tools-section,
+.admin-section,
+footer{
+
+    animation:fadeUp .8s ease;
+
+}
+
+/* ---------- Smooth Scrolling ---------- */
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+/* ---------- Mobile ---------- */
+
+@media(max-width:768px){
+
+.logo{
+
+    width:110px;
+
+}
+
+h1{
+
+    font-size:36px;
+
+}
+
+.subtitle{
+
+    font-size:16px;
+
+    padding:0 15px;
+
+}
+
+.navbar{
+
+    gap:10px;
+
+}
+
+.navbar a{
+
+    font-size:14px;
+
+    padding:8px 14px;
+
+}
+
+.games-container{
+
+    width:95%;
+
+}
+
+.game-card{
+
+    width:100%;
+
+}
+
+.tools-section{
+
+    width:95%;
+
+    padding:25px;
+
+}
+
+.admin-section{
+
+    width:95%;
+
+    padding:35px 20px;
+
+}
+
+.admin-section h2{
+
+    font-size:28px;
+
+}
+
+.create-btn{
+
+    width:100%;
+
+    max-width:300px;
+
+}
+
+}
+
+/* ---------- Small Phones ---------- */
+
+@media(max-width:480px){
+
+h1{
+
+    font-size:30px;
+
+}
+
+.subtitle{
+
+    font-size:15px;
+
+}
+
+.game-card h3{
+
+    font-size:20px;
+
+}
+
+.game-card p{
+
+    font-size:14px;
+
+}
+
+}
