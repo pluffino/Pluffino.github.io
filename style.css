@@ -1,6 +1,9 @@
-/* ========================= */
-/* GENERAL */
-/* ========================= */
+/*======================================
+        PLUFFINO V2 - PART 1
+        Global • Header • Navigation
+=======================================*/
+
+/* ---------- Reset ---------- */
 
 *{
     margin:0;
@@ -8,15 +11,17 @@
     box-sizing:border-box;
 }
 
+/* ---------- Body ---------- */
+
 body{
 
-    font-family:Arial,sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
 
     color:white;
 
-    background-image:
-    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
-    url('d756804e-32b5-4997-a4bb-74c7b04e7f3f.png');
+    background:
+    linear-gradient(rgba(15,0,25,.78),rgba(15,0,25,.78)),
+    url("d756804e-32b5-4997-a4bb-74c7b04e7f3f.png");
 
     background-size:cover;
     background-position:center;
@@ -26,260 +31,191 @@ body{
 
 }
 
-/* ========================= */
-/* CONTAINER */
-/* ========================= */
+/* ---------- Links ---------- */
 
-.creator-container{
+a{
 
-    width:92%;
-    max-width:900px;
-
-    margin:40px auto;
+    text-decoration:none;
 
 }
 
-h1{
+/* ---------- Images ---------- */
+
+img{
+
+    max-width:100%;
+
+}
+
+/*======================================
+              HEADER
+=======================================*/
+
+header{
+
+    width:90%;
+
+    max-width:1100px;
+
+    margin:40px auto 20px;
 
     text-align:center;
 
-    color:#FF00CC;
-
-    text-shadow:0 0 12px #FF00CC;
-
-    margin-bottom:10px;
-
 }
 
-.subtitle{
+/* Logo */
 
-    text-align:center;
+.logo{
 
-    color:#DDDDDD;
+    width:140px;
 
-    margin-bottom:40px;
-
-}
-
-/* ========================= */
-/* PROGRESS BAR */
-/* ========================= */
-
-.progress-container{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    margin-bottom:40px;
-
-}
-
-.progress-step{
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    width:100px;
-
-}
-
-.circle{
-
-    width:45px;
-
-    height:45px;
-
-    border-radius:50%;
-
-    border:2px solid #666;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    background:#222;
-
-    font-weight:bold;
+    margin-bottom:15px;
 
     transition:.3s;
 
 }
 
-.progress-step span{
+.logo:hover{
 
-    margin-top:10px;
-
-    font-size:14px;
+    transform:scale(1.05);
 
 }
 
-.progress-step.active .circle{
+/* Main Title */
 
-    background:#FF00CC;
+h1{
 
-    border-color:#FF00CC;
+    font-size:52px;
 
-    box-shadow:0 0 20px #FF00CC;
+    color:#FF00CC;
 
-}
+    text-shadow:
 
-.line{
+    0 0 10px #FF00CC,
 
-    flex:1;
+    0 0 20px #FF00CC,
 
-    height:3px;
+    0 0 40px #FF00CC;
 
-    background:#555;
-
-    margin:0 8px;
-
-    margin-bottom:25px;
+    letter-spacing:3px;
 
 }
 
-/* ========================= */
-/* STEP BOX */
-/* ========================= */
+/* Subtitle */
 
-.step{
+.subtitle{
 
-    display:none;
+    margin-top:12px;
 
-}
+    color:#DDDDDD;
 
-.step.active{
+    font-size:18px;
 
-    display:block;
-
-    animation:fade .45s;
+    line-height:1.6;
 
 }
 
-@keyframes fade{
+/*======================================
+            NAVIGATION
+=======================================*/
 
-from{
+.navbar{
 
-opacity:0;
+    width:90%;
 
-transform:translateX(30px);
+    max-width:1100px;
 
-}
+    margin:35px auto;
 
-to{
+    padding:18px;
 
-opacity:1;
+    display:flex;
 
-transform:translateX(0);
+    justify-content:center;
 
-}
+    flex-wrap:wrap;
 
-}
-
-.step-box{
+    gap:15px;
 
     background:rgba(255,255,255,.05);
 
     border:1px solid #BB66FF;
 
-    border-radius:20px;
+    border-radius:18px;
 
-    padding:35px;
-
-    box-shadow:0 0 25px rgba(255,0,204,.35);
+    box-shadow:0 0 18px rgba(255,0,204,.35);
 
 }
 
-.step-box h2{
-
-    color:#FF00CC;
-
-    margin-bottom:25px;
-
-}
-
-/* ========================= */
-/* FORM */
-/* ========================= */
-
-label{
-
-    display:block;
-
-    margin-top:18px;
-
-    margin-bottom:8px;
-
-    font-weight:bold;
-
-}
-
-input,
-select,
-textarea{
-
-    width:100%;
-
-    padding:14px;
-
-    border:none;
-
-    border-radius:12px;
-
-    background:#1d1d1d;
+.navbar a{
 
     color:white;
 
-    outline:none;
+    font-weight:bold;
 
-    font-size:15px;
+    padding:12px 22px;
+
+    border-radius:10px;
+
+    transition:.3s;
 
 }
 
-input:focus,
-select:focus,
-textarea:focus{
+.navbar a:hover{
 
-    border:1px solid #FF00CC;
+    background:#FF00CC;
+
+    color:white;
 
     box-shadow:0 0 15px #FF00CC;
 
-}
-
-/* ========================= */
-/* BUTTONS */
-/* ========================= */
-
-.buttons{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    margin-top:35px;
+    transform:translateY(-2px);
 
 }
 
-.next-btn,
-.back-btn,
-.publish-btn{
+/*======================================
+        SECTION TITLES
+=======================================*/
 
-    padding:14px 28px;
+.section-title,
+.tools-title{
 
-    border:none;
+    text-align:center;
+
+    font-size:32px;
+
+    color:#FF00CC;
+
+    text-shadow:0 0 12px #FF00CC;
+
+    margin-bottom:15px;
+
+}
+
+.tools-subtitle{
+
+    text-align:center;
+
+    color:#CCCCCC;
+
+    margin-bottom:35px;
+
+}
+
+/*======================================
+          COMMON BUTTONS
+=======================================*/
+
+.view-btn,
+.create-btn{
+
+    display:inline-block;
+
+    padding:12px 24px;
+
+    margin-top:18px;
 
     border-radius:12px;
-
-    cursor:pointer;
-
-    font-size:16px;
 
     font-weight:bold;
 
@@ -287,7 +223,9 @@ textarea:focus{
 
 }
 
-.next-btn{
+/* Pink Button */
+
+.view-btn{
 
     background:#FF00CC;
 
@@ -295,114 +233,34 @@ textarea:focus{
 
 }
 
-.next-btn:hover{
+.view-btn:hover{
 
     background:#d600aa;
 
-    transform:scale(1.05);
+    transform:translateY(-3px);
+
+    box-shadow:0 0 20px #FF00CC;
 
 }
 
-.back-btn{
+/* Gold Button */
 
-    background:#444;
+.create-btn{
 
-    color:white;
-
-}
-
-.back-btn:hover{
-
-    background:#666;
-
-}
-
-.publish-btn{
-
-    background:gold;
+    background:linear-gradient(135deg,#FFD700,#FFB800);
 
     color:black;
 
+    font-weight:bold;
+
+    box-shadow:0 0 18px rgba(255,215,0,.6);
+
 }
 
-.publish-btn:hover{
-
-    background:#FFD700;
+.create-btn:hover{
 
     transform:scale(1.05);
 
-}
+    box-shadow:0 0 30px rgba(255,215,0,.9);
 
-/* ========================= */
-/* REVIEW BOX */
-/* ========================= */
-
-#reviewSection{
-
-    margin-top:25px;
-
-    display:none;
-
-}
-
-/* ========================= */
-/* SUCCESS */
-/* ========================= */
-
-.success-message{
-
-    display:none;
-
-    text-align:center;
-
-    padding:15px;
-
-    margin-bottom:25px;
-
-    background:rgba(0,255,100,.15);
-
-    border:1px solid #00ff88;
-
-    border-radius:12px;
-
-    color:#66ff99;
-
-}
-
-/* ========================= */
-/* MOBILE */
-/* ========================= */
-
-@media(max-width:700px){
-
-.progress-container{
-
-flex-wrap:wrap;
-
-gap:15px;
-
-}
-
-.line{
-
-display:none;
-
-}
-
-.buttons{
-
-flex-direction:column;
-
-gap:15px;
-
-}
-
-.next-btn,
-.back-btn,
-.publish-btn{
-
-width:100%;
-
-}
-
-}
+    }
