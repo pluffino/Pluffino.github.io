@@ -264,3 +264,177 @@ h1{
     box-shadow:0 0 30px rgba(255,215,0,.9);
 
     }
+/*======================================
+        PLUFFINO V2 - PART 2
+      Featured Games & Tools
+=======================================*/
+
+/* ---------- Featured Games ---------- */
+
+.games-container{
+
+    width:90%;
+
+    max-width:1300px;
+
+    margin:40px auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+
+    gap:30px;
+
+}
+
+/* ---------- Card ---------- */
+
+.game-card{
+
+    background:rgba(255,255,255,.06);
+
+    border:1px solid #BB66FF;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    text-align:center;
+
+    transition:.35s;
+
+    box-shadow:0 0 18px rgba(255,0,204,.25);
+
+}
+
+.game-card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:#FF00CC;
+
+    box-shadow:
+
+    0 0 18px #FF00CC,
+
+    0 0 35px rgba(255,0,204,.45);
+
+}
+
+/* ---------- Images ---------- */
+
+.game-card img{
+
+    width:100%;
+
+    height:170px;
+
+    object-fit:cover;
+
+    display:block;
+
+}
+
+/* ---------- Card Text ---------- */
+
+.game-card h3{
+
+    margin:18px 15px 10px;
+
+    font-size:22px;
+
+    color:white;
+
+}
+
+.game-card p{
+
+    color:#D8D8D8;
+
+    line-height:1.6;
+
+    min-height:55px;
+
+    padding:0 18px;
+
+}
+
+.game-card .view-btn{
+
+    margin-bottom:22px;
+
+}
+
+/*======================================
+          GAMING TOOLS
+=======================================*/
+
+.tools-section{
+
+    width:90%;
+
+    max-width:1300px;
+
+    margin:70px auto;
+
+    padding:40px;
+
+    border-radius:25px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid #BB66FF;
+
+    box-shadow:0 0 25px rgba(255,0,204,.28);
+
+}
+
+.tools-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:28px;
+
+    margin-top:30px;
+
+}
+
+/* ---------- Tool Cards ---------- */
+
+.tools-grid .game-card{
+
+    background:rgba(255,255,255,.04);
+
+}
+
+/* ---------- Nice Hover Animation ---------- */
+
+.game-card:hover img{
+
+    transform:scale(1.05);
+
+}
+
+.game-card img{
+
+    transition:.35s;
+
+}
+
+/*======================================
+          SECTION SPACING
+=======================================*/
+
+.games-container{
+
+    margin-bottom:80px;
+
+}
+
+.tools-section{
+
+    margin-bottom:80px;
+
+        }
