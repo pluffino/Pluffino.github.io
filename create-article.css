@@ -223,3 +223,170 @@ body{
         0 0 25px rgba(0,210,106,.45);
 
 }
+/*======================================
+        PART 3 - STEP CARDS & FORMS
+======================================*/
+
+/* Step Container */
+
+.step{
+
+    display:none;
+
+}
+
+.step.active{
+
+    display:block;
+
+    animation:fadeIn .4s ease;
+
+}
+
+/* Card */
+
+.step-box{
+
+    background:rgba(255,255,255,.06);
+
+    border:1px solid #BB66FF;
+
+    border-radius:22px;
+
+    padding:35px;
+
+    box-shadow:0 0 25px rgba(255,0,204,.25);
+
+}
+
+/* Step Title */
+
+.step-box h2{
+
+    color:#FF00CC;
+
+    margin-bottom:30px;
+
+    text-align:center;
+
+    text-shadow:0 0 12px #FF00CC;
+
+}
+
+/* Labels */
+
+.step-box label{
+
+    display:block;
+
+    margin-top:20px;
+
+    margin-bottom:8px;
+
+    font-weight:bold;
+
+    color:#EEEEEE;
+
+}
+
+/* Inputs */
+
+.step-box input,
+
+.step-box select,
+
+.step-box textarea{
+
+    width:100%;
+
+    padding:14px 16px;
+
+    border-radius:12px;
+
+    border:1px solid #BB66FF;
+
+    background:rgba(255,255,255,.08);
+
+    color:white;
+
+    font-size:16px;
+
+    outline:none;
+
+    transition:.25s;
+
+}
+
+/* Placeholder */
+
+.step-box input::placeholder,
+
+.step-box textarea::placeholder{
+
+    color:#BBBBBB;
+
+}
+
+/* Focus */
+
+.step-box input:focus,
+
+.step-box select:focus,
+
+.step-box textarea:focus{
+
+    border-color:#FF00CC;
+
+    box-shadow:0 0 12px rgba(255,0,204,.5);
+
+}
+
+/* Textarea */
+
+.step-box textarea{
+
+    min-height:170px;
+
+    resize:vertical;
+
+}
+
+/* Dropdown */
+
+.step-box select{
+
+    cursor:pointer;
+
+}
+
+/* Dropdown Options */
+
+.step-box option{
+
+    background:#2B1038;
+
+    color:white;
+
+}
+
+/* Fade Animation */
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
