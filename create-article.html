@@ -411,19 +411,23 @@ function showStep(step){
 
 function updateProgress(step){
 
-    const steps = document.querySelectorAll(".progress-step");
+const steps=document.querySelectorAll(".progress-step");
 
-    steps.forEach(function(item,index){
+steps.forEach((item,index)=>{
 
-        item.classList.remove("active");
+item.classList.remove("active","completed");
 
-        if(index < step){
+if(index < step-1){
 
-            item.classList.add("active");
+item.classList.add("completed");
 
-        }
+}else if(index === step-1){
 
-    });
+item.classList.add("active");
+
+}
+
+});
 
 }
 
