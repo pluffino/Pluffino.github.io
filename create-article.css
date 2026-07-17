@@ -90,3 +90,136 @@ body{
     line-height:1.7;
 
 }
+/*======================================
+        PART 2 - PROGRESS BAR
+======================================*/
+
+.progress-container{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin:50px 0;
+
+    position:relative;
+
+}
+
+/* Connecting Lines */
+
+.line{
+
+    flex:1;
+
+    height:4px;
+
+    background:rgba(255,255,255,.15);
+
+    margin:0 10px;
+
+    border-radius:20px;
+
+}
+
+/* Step */
+
+.progress-step{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    z-index:2;
+
+}
+
+/* Circle */
+
+.circle{
+
+    width:55px;
+
+    height:55px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.08);
+
+    border:2px solid #BB66FF;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    transition:.35s;
+
+}
+
+/* Active Step */
+
+.progress-step.active .circle{
+
+    background:#FF00CC;
+
+    border-color:#FF00CC;
+
+    box-shadow:
+
+        0 0 15px #FF00CC,
+
+        0 0 30px rgba(255,0,204,.6);
+
+}
+
+/* Step Name */
+
+.progress-step span{
+
+    margin-top:10px;
+
+    font-size:14px;
+
+    color:#DDDDDD;
+
+    text-align:center;
+
+}
+
+/* Active Text */
+
+.progress-step.active span{
+
+    color:white;
+
+    font-weight:bold;
+
+}
+
+/* Completed Step */
+
+.progress-step.completed .circle{
+
+    background:#00D26A;
+
+    border-color:#00D26A;
+
+    box-shadow:
+
+        0 0 15px #00D26A,
+
+        0 0 25px rgba(0,210,106,.45);
+
+}
