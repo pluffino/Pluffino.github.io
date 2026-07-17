@@ -1,1 +1,92 @@
+/*======================================
+        PLUFFINO STUDIO
+      CREATE ARTICLE PAGE
+======================================*/
 
+/* ---------- Reset ---------- */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* ---------- Body ---------- */
+
+body{
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    color:white;
+
+    background:
+    linear-gradient(rgba(18,0,30,.85),rgba(18,0,30,.85)),
+    url("d756804e-32b5-4997-a4bb-74c7b04e7f3f.png");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-attachment:fixed;
+
+    min-height:100vh;
+
+}
+
+/* ---------- Main Container ---------- */
+
+.creator-container{
+
+    width:90%;
+
+    max-width:900px;
+
+    margin:60px auto;
+
+}
+
+/* ---------- Logo ---------- */
+
+.creator-logo{
+
+    width:120px;
+
+    display:block;
+
+    margin:0 auto 20px;
+
+}
+
+/* ---------- Heading ---------- */
+
+.creator-container h1{
+
+    text-align:center;
+
+    color:#FF00CC;
+
+    font-size:46px;
+
+    text-shadow:
+
+    0 0 12px #FF00CC,
+
+    0 0 28px #FF00CC;
+
+}
+
+/* ---------- Subtitle ---------- */
+
+.subtitle{
+
+    text-align:center;
+
+    color:#DDDDDD;
+
+    margin-top:15px;
+
+    margin-bottom:40px;
+
+    line-height:1.7;
+
+}
