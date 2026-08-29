@@ -258,8 +258,8 @@ rows="5"></textarea>
         ← Back
     </button>
 
-    <button class="next-btn">
-        Next →
+    <button class="next-btn" onclick="goToStep4()">
+    Next →
     </button>
 
 </div>
@@ -358,6 +358,10 @@ onclick="publishArticle()">
 // =========================
 
 let currentStep = 1;
+
+window.onload = function () {
+    toggleReview();
+};
 
 // =========================
 // Show Step
@@ -582,11 +586,9 @@ function backToStep3(){
 // Publish
 // =========================
 
-document.querySelector(".publish-btn").addEventListener("click",function(){
-
 function publishArticle(){
 
-alert("🎉 Article Published!\n\nLater this button will automatically generate your article page.");
+    alert("🎉 Article Published!\n\nLater this button will automatically generate your article page.");
 
 }
 
