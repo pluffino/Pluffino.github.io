@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -16,735 +15,1377 @@
 
 <div class="creator-container">
 
-<img src="Picsart_26-04-04_09-01-51-589.png"
-class="creator-logo">
+<header class="creator-header">
 
-<h1>🚀 Pluffino Studio</h1>
+<img
+src="Picsart_26-04-04_09-01-51-589.png"
+class="creator-logo"
+alt="Pluffino"
+>
 
-<p class="subtitle">
-Create a brand new article for Pluffino Gaming Hub
-</p>
+<h1>Pluffino Studio</h1>
 
-<!-- Progress Bar -->
+<p>Create and publish your gaming article</p>
+
+</header>
+
+
+<!-- =========================================================
+     PROGRESS BAR
+     ========================================================= -->
 
 <div class="progress-container">
 
 <div class="progress-step active">
-<div class="circle">1</div>
-<span>Basic Info</span>
+Basic Info
 </div>
-
-<div class="line"></div>
 
 <div class="progress-step">
-<div class="circle">2</div>
-<span>Content</span>
+Content
 </div>
-
-<div class="line"></div>
 
 <div class="progress-step">
-<div class="circle">3</div>
-<span>Details</span>
+Details
 </div>
-
-<div class="line"></div>
 
 <div class="progress-step">
-<div class="circle">4</div>
-<span>Publish</span>
+Publish
 </div>
 
 </div>
 
-<!-- ========================= -->
-<!-- STEP 1 -->
-<!-- ========================= -->
 
-<div class="step active" id="step1">
+<!-- =========================================================
+     STEP 1
+     ========================================================= -->
 
-<div class="step-box">
+<section class="step active" id="step1">
 
 <h2>Step 1 • Basic Information</h2>
 
-<label>🖼 Thumbnail</label>
-
-<input id="thumbnail" type="file">
-
-<label>📝 Article Title</label>
+<label for="articleTitle">
+Article Title
+</label>
 
 <input
+type="text"
 id="articleTitle"
-type="text"
-placeholder="Example: Lokicraft 7 Review">
+placeholder="Enter your article title"
+>
 
-<label>🎮 Game Name</label>
+
+<label for="gameName">
+Game Name
+</label>
 
 <input
-id="gameName"
 type="text"
-placeholder="Lokicraft 7">
+id="gameName"
+placeholder="Enter the game name"
+>
 
-<label>📂 Category</label>
+
+<label for="category">
+Category
+</label>
 
 <select id="category">
 
-<option value="">Select Category</option>
+<option value="">
+Select a category
+</option>
 
-<option>Action</option>
-<option>Adventure</option>
-<option>Battle Royale</option>
-<option>Building & Sandbox</option>
-<option>Casual</option>
-<option>Fighting</option>
-<option>Horror</option>
-<option>Open World</option>
-<option>Puzzle</option>
-<option>Racing</option>
-<option>RPG</option>
-<option>Shooter</option>
-<option>Simulation</option>
-<option>Sports</option>
-<option>Strategy</option>
-<option>Survival</option>
-<option>Other</option>
+<option value="Action">
+Action
+</option>
+
+<option value="Survival">
+Survival
+</option>
+
+<option value="Horror">
+Horror
+</option>
+
+<option value="Adventure">
+Adventure
+</option>
+
+<option value="Battle Royale">
+Battle Royale
+</option>
+
+<option value="Other">
+Other
+</option>
 
 </select>
 
-<label>📱 Device (Optional)</label>
+
+<label for="thumbnail">
+Thumbnail
+</label>
 
 <input
-id="device"
-type="text"
-placeholder="Samsung Galaxy A15">
+type="file"
+id="thumbnail"
+accept="image/*"
+>
 
-<label>▶ Video Link</label>
+
+<label for="videoLink">
+YouTube / Video Link
+</label>
 
 <input
-id="videoLink"
 type="url"
-placeholder="https://youtube.com/...">
+id="videoLink"
+placeholder="https://youtube.com/..."
+>
 
-<div class="buttons">
 
-    <button class="next-btn" onclick="nextStep()">
-        Next →
-    </button>
+<div class="button-row">
+
+<button
+type="button"
+class="next-btn"
+onclick="nextStep()"
+>
+Next →
+</button>
 
 </div>
 
-</div>
+</section>
 
-</div>
 
-</div>
+<!-- =========================================================
+     STEP 2
+     ========================================================= -->
 
-<!-- ========================= -->
-<!-- STEP 2 -->
-<!-- ========================= -->
-
-<div class="step" id="step2">
-
-<div class="step-box">
+<section class="step" id="step2">
 
 <h2>Step 2 • Content</h2>
 
-<label>📂 Subject</label>
+
+<label for="subject">
+Subject
+</label>
 
 <select id="subject">
 
-<option value="">Select Subject</option>
+<option value="">
+Select a subject
+</option>
 
-<option>Review</option>
-<option>Gameplay</option>
-<option>Tutorial</option>
-<option>Tips & Tricks</option>
-<option>Challenge</option>
-<option>Crate Opening</option>
-<option>Bugs & Glitches</option>
-<option>Comparison</option>
-<option>News</option>
-<option>Other</option>
+<option value="Gameplay">
+Gameplay
+</option>
+
+<option value="Review">
+Review
+</option>
+
+<option value="Opening Crates">
+Opening Crates
+</option>
+
+<option value="Showing Bugs">
+Showing Bugs
+</option>
+
+<option value="Other">
+Other
+</option>
 
 </select>
 
-<label>✍ Describe It</label>
+
+<label for="story">
+Describe it
+</label>
 
 <textarea
 id="story"
-rows="10"
-placeholder="Describe your experience..."></textarea>
+rows="12"
+placeholder="Tell readers what happened..."
+></textarea>
 
-<div class="buttons">
 
-    <button class="back-btn" onclick="previousStep()">
-        ← Back
-    </button>
+<div class="button-row">
 
-    <button class="next-btn" onclick="goToStep3()">
-        Next →
-    </button>
+<button
+type="button"
+class="back-btn"
+onclick="previousStep()"
+>
+← Back
+</button>
+
+<button
+type="button"
+class="next-btn"
+onclick="goToStep3()"
+>
+Next →
+</button>
 
 </div>
 
-</div>
+</section>
 
-</div>
 
-<!-- ========================= -->
-<!-- STEP 3 -->
-<!-- ========================= -->
+<!-- =========================================================
+     STEP 3
+     ========================================================= -->
 
-<div class="step" id="step3">
+<section class="step" id="step3">
 
-<div class="step-box">
+<h2>Step 3 • Details</h2>
 
-<h2>Step 3 • Article Details</h2>
+
+<label for="device">
+Device
+</label>
+
+<input
+type="text"
+id="device"
+placeholder="Optional"
+>
+
+
+<div class="review-toggle">
 
 <label>
 
 <input
 type="checkbox"
 id="reviewMode"
-onchange="toggleReview()">
+onchange="toggleReview()"
+>
 
-This is a Review Article
+This is a review
 
 </label>
 
-<div id="reviewSection">
+</div>
 
-<label>⭐ Overall Rating</label>
+
+<div
+id="reviewSection"
+style="display:none;"
+>
+
+
+<label for="rating">
+Rating
+</label>
 
 <select id="rating">
 
-<option value="">Select Rating</option>
+<option value="">
+Select rating
+</option>
 
-<option>⭐☆☆☆☆ (1/5)</option>
-<option>⭐⭐☆☆☆ (2/5)</option>
-<option>⭐⭐⭐☆☆ (3/5)</option>
-<option>⭐⭐⭐⭐☆ (4/5)</option>
-<option>⭐⭐⭐⭐⭐ (5/5)</option>
+<option value="⭐">
+⭐
+</option>
+
+<option value="⭐⭐">
+⭐⭐
+</option>
+
+<option value="⭐⭐⭐">
+⭐⭐⭐
+</option>
+
+<option value="⭐⭐⭐⭐">
+⭐⭐⭐⭐
+</option>
+
+<option value="⭐⭐⭐⭐⭐">
+⭐⭐⭐⭐⭐
+</option>
 
 </select>
 
-<label>✅ Pros</label>
+
+<label for="pros">
+Pros
+</label>
 
 <textarea
 id="pros"
-rows="5"></textarea>
+rows="5"
+placeholder="What did you like?"
+></textarea>
 
-<label>❌ Cons</label>
+
+<label for="cons">
+Cons
+</label>
 
 <textarea
 id="cons"
-rows="5"></textarea>
+rows="5"
+placeholder="What didn't you like?"
+></textarea>
 
-<label>🎮 Worth Playing?</label>
+
+<label for="worthPlaying">
+Worth Playing?
+</label>
 
 <select id="worthPlaying">
 
-<option>Yes</option>
-<option>No</option>
-<option>Depends</option>
+<option value="">
+Select an answer
+</option>
+
+<option value="Yes">
+Yes
+</option>
+
+<option value="Maybe">
+Maybe
+</option>
+
+<option value="No">
+No
+</option>
 
 </select>
 
 </div>
 
-<div class="buttons">
 
-    <button class="back-btn" onclick="backToStep2()">
-        ← Back
-    </button>
+<div class="button-row">
 
-    <button class="next-btn" onclick="goToStep4()">
-    Next →
-    </button>
+<button
+type="button"
+class="back-btn"
+onclick="backToStep2()"
+>
+← Back
+</button>
+
+<button
+type="button"
+class="next-btn"
+onclick="goToStep4()"
+>
+Next →
+</button>
 
 </div>
 
-</div>
+</section>
+
+
+<!-- =========================================================
+     STEP 4
+     ========================================================= -->
+
+<section class="step" id="step4">
+
+<h2>Step 4 • Publish</h2>
+
+
+<div class="preview-box">
+
+<h3 id="previewTitle">
+Article Title
+</h3>
+
+
+<div class="preview-info">
+
+<p>
+<strong>Game:</strong>
+<span id="previewGame"></span>
+</p>
+
+
+<p>
+<strong>Category:</strong>
+<span id="previewCategory"></span>
+</p>
+
+
+<p>
+<strong>Device:</strong>
+<span id="previewDevice"></span>
+</p>
+
+
+<p>
+<strong>Video:</strong>
+<span id="previewVideo"></span>
+</p>
 
 </div>
 
-<!-- ========================= -->
-<!-- STEP 4 -->
-<!-- ========================= -->
-<div class="step" id="step4">
 
-<div class="step-box">
+<h3>
+<span id="previewSubject"></span>
+</h3>
 
-<h2>👀 Preview & Publish</h2>
-
-<div id="previewCard">
-
-<h3 id="previewTitle"></h3>
-
-<p><b>Game:</b> <span id="previewGame"></span></p>
-
-<p><b>Category:</b> <span id="previewCategory"></span></p>
-
-<p><b>Device:</b> <span id="previewDevice"></span></p>
-
-<p><b>Video:</b></p>
-
-<p id="previewVideo"></p>
-
-<hr>
-
-<h3>Subject</h3>
-
-<p id="previewSubject"></p>
-
-<hr>
-
-<h3>Description</h3>
 
 <p id="previewStory"></p>
 
-<div id="reviewPreview">
 
-<hr>
+<div
+id="reviewPreview"
+style="display:none;"
+>
 
-<h3>Review</h3>
+<h3>
+⭐ Review
+</h3>
 
-<p id="previewRating"></p>
+<p>
+<strong>Rating:</strong>
+<span id="previewRating"></span>
+</p>
 
-<h4>Pros</h4>
+<p>
+<strong>Pros:</strong>
+</p>
 
 <p id="previewPros"></p>
 
-<h4>Cons</h4>
+
+<p>
+<strong>Cons:</strong>
+</p>
 
 <p id="previewCons"></p>
 
-<h4>Worth Playing?</h4>
 
-<p id="previewWorth"></p>
+<p>
+<strong>Worth Playing:</strong>
+<span id="previewWorth"></span>
+</p>
 
 </div>
 
 </div>
 
-<div class="buttons">
 
-<button class="back-btn"
-onclick="backToStep3()">
+<div class="button-row">
 
+<button
+type="button"
+class="back-btn"
+onclick="backToStep3()"
+>
 ← Back
-
 </button>
 
-<button class="publish-btn"
-onclick="publishArticle()">
 
-🚀 Publish
-
+<button
+type="button"
+class="publish-btn"
+onclick="publishArticle()"
+>
+🚀 Publish Article
 </button>
 
 </div>
 
-</div>
+</section>
 
 </div>
 
-</div>
+
+<!-- =========================================================
+     JAVASCRIPT
+     ========================================================= -->
 
 <script>
 
-// =========================
-// Current Step
-// =========================
+
+// ============================================================
+// WEB APP URL
+// ============================================================
+
+const WEB_APP_URL =
+"https://script.google.com/macros/s/AKfycbw0aCmOxJDqsZh-tZVJO8SR_JDszS8zWuAN8p2MfMM97NU0Abd_CJDgRnOMZZ_3D5D6/exec";
+
 
 let currentStep = 1;
 
-window.onload = function () {
-    toggleReview();
-};
 
-// =========================
-// Show Step
-// =========================
+// ============================================================
+// STARTUP
+// ============================================================
 
-function showStep(step){
+window.addEventListener(
+"DOMContentLoaded",
+function () {
 
-    document.querySelectorAll(".step").forEach(function(page){
+toggleReview();
 
-        page.classList.remove("active");
+updateProgress(1);
 
-    });
+}
+);
 
-    document.getElementById("step"+step).classList.add("active");
 
-    updateProgress(step);
+// ============================================================
+// SHOW STEP
+// ============================================================
 
-    currentStep = step;
+function showStep(step) {
+
+
+document.querySelectorAll(
+".step"
+).forEach(
+function (page) {
+
+page.classList.remove(
+"active"
+);
+
+}
+);
+
+
+const target =
+document.getElementById(
+"step" + step
+);
+
+
+if (!target) {
+
+alert(
+"Could not open Step " +
+step +
+"."
+);
+
+return;
 
 }
 
-// =========================
-// Progress Bar
-// =========================
 
-function updateProgress(step){
+target.classList.add(
+"active"
+);
 
-const steps=document.querySelectorAll(".progress-step");
 
-steps.forEach((item,index)=>{
+updateProgress(step);
 
-item.classList.remove("active","completed");
 
-if(index < step-1){
+currentStep = step;
 
-item.classList.add("completed");
 
-}else if(index === step-1){
+window.scrollTo({
 
-item.classList.add("active");
+top: 0,
 
-}
+behavior: "smooth"
 
 });
 
 }
 
-// =========================
-// Step 1 Validation
-// =========================
 
-function nextStep(){
+// ============================================================
+// PROGRESS
+// ============================================================
 
-    const title = document.getElementById("articleTitle");
+function updateProgress(step) {
 
-    const game = document.getElementById("gameName");
 
-    const category = document.getElementById("category");
+const steps =
+document.querySelectorAll(
+".progress-step"
+);
 
-    const video = document.getElementById("videoLink");
 
-    if(title.value.trim()==""){
+steps.forEach(
+function (item, index) {
 
-        alert("Please enter an Article Title.");
 
-        return;
+item.classList.remove(
+"active",
+"completed"
+);
 
-    }
 
-    if(game.value.trim()==""){
+if (index < step - 1) {
 
-        alert("Please enter the Game Name.");
+item.classList.add(
+"completed"
+);
 
-        return;
+}
+else if (index === step - 1) {
 
-    }
-
-    if(category.value==""){
-
-        alert("Please select a Category.");
-
-        return;
-
-    }
-
-    if(video.value.trim()==""){
-
-        alert("Please enter your Video Link.");
-
-        return;
-
-    }
-
-    showStep(2);
+item.classList.add(
+"active"
+);
 
 }
 
-// =========================
-// Step 2 Validation
-// =========================
-
-function goToStep3(){
-
-    const subject = document.getElementById("subject");
-
-    const story = document.getElementById("story");
-
-    if(subject.value==""){
-
-        alert("Please select a Subject.");
-
-        return;
-
-    }
-
-    if(story.value.trim()==""){
-
-        alert("Please describe your content.");
-
-        return;
-
-    }
-
-    showStep(3);
+}
+);
 
 }
 
-// =========================
-// Review Toggle
-// =========================
 
-function toggleReview(){
+// ============================================================
+// STEP 1 VALIDATION
+// ============================================================
 
-    const review = document.getElementById("reviewSection");
+function nextStep() {
 
-    if(document.getElementById("reviewMode").checked){
 
-        review.style.display="block";
+const title =
+document.getElementById(
+"articleTitle"
+);
 
-    }
 
-    else{
+const game =
+document.getElementById(
+"gameName"
+);
 
-        review.style.display="none";
 
-    }
+const category =
+document.getElementById(
+"category"
+);
+
+
+const video =
+document.getElementById(
+"videoLink"
+);
+
+
+if (!title.value.trim()) {
+
+alert(
+"Please enter an Article Title."
+);
+
+title.focus();
+
+return;
+
+}
+
+
+if (!game.value.trim()) {
+
+alert(
+"Please enter the Game Name."
+);
+
+game.focus();
+
+return;
 
 }
 
-// =========================
-// Step Navigation
-// =========================
 
-function previousStep(){
+if (!category.value) {
 
-    showStep(1);
+alert(
+"Please select a Category."
+);
 
-}
+category.focus();
 
-function backToStep2(){
-
-    showStep(2);
+return;
 
 }
 
-function goToStep4(){
 
-document.getElementById("previewTitle").innerText=
-document.getElementById("articleTitle").value;
+if (!video.value.trim()) {
 
-document.getElementById("previewGame").innerText=
-document.getElementById("gameName").value;
+alert(
+"Please enter your Video Link."
+);
 
-document.getElementById("previewCategory").innerText=
-document.getElementById("category").value;
+video.focus();
 
-document.getElementById("previewDevice").innerText=
-document.getElementById("device").value || "Not specified";
-
-document.getElementById("previewVideo").innerText=
-document.getElementById("videoLink").value;
-
-document.getElementById("previewSubject").innerText=
-document.getElementById("subject").value;
-
-document.getElementById("previewStory").innerText=
-document.getElementById("story").value;
-
-if(document.getElementById("reviewMode").checked){
-
-document.getElementById("reviewPreview").style.display="block";
-
-document.getElementById("previewRating").innerText=
-document.getElementById("rating").value;
-
-document.getElementById("previewPros").innerText=
-document.getElementById("pros").value;
-
-document.getElementById("previewCons").innerText=
-document.getElementById("cons").value;
-
-document.getElementById("previewWorth").innerText=
-document.getElementById("worthPlaying").value;
-
-}else{
-
-document.getElementById("reviewPreview").style.display="none";
+return;
 
 }
+
+
+showStep(2);
+
+}
+
+
+// ============================================================
+// STEP 2
+// ============================================================
+
+function goToStep3() {
+
+
+const subject =
+document.getElementById(
+"subject"
+);
+
+
+const story =
+document.getElementById(
+"story"
+);
+
+
+if (!subject.value) {
+
+alert(
+"Please select a Subject."
+);
+
+subject.focus();
+
+return;
+
+}
+
+
+if (!story.value.trim()) {
+
+alert(
+"Please describe your content."
+);
+
+story.focus();
+
+return;
+
+}
+
+
+showStep(3);
+
+}
+
+
+// ============================================================
+// REVIEW TOGGLE
+// ============================================================
+
+function toggleReview() {
+
+
+const review =
+document.getElementById(
+"reviewSection"
+);
+
+
+const checkbox =
+document.getElementById(
+"reviewMode"
+);
+
+
+if (!review || !checkbox) {
+
+return;
+
+}
+
+
+if (checkbox.checked) {
+
+review.style.display =
+"block";
+
+}
+else {
+
+review.style.display =
+"none";
+
+}
+
+}
+
+
+// ============================================================
+// BACK BUTTONS
+// ============================================================
+
+function previousStep() {
+
+showStep(1);
+
+}
+
+
+function backToStep2() {
+
+showStep(2);
+
+}
+
+
+function backToStep3() {
+
+showStep(3);
+
+}
+
+
+// ============================================================
+// STEP 4 PREVIEW
+// ============================================================
+
+function goToStep4() {
+
+
+document.getElementById(
+"previewTitle"
+).innerText =
+document.getElementById(
+"articleTitle"
+).value;
+
+
+document.getElementById(
+"previewGame"
+).innerText =
+document.getElementById(
+"gameName"
+).value;
+
+
+document.getElementById(
+"previewCategory"
+).innerText =
+document.getElementById(
+"category"
+).value;
+
+
+document.getElementById(
+"previewDevice"
+).innerText =
+document.getElementById(
+"device"
+).value ||
+"Not specified";
+
+
+document.getElementById(
+"previewVideo"
+).innerText =
+document.getElementById(
+"videoLink"
+).value;
+
+
+document.getElementById(
+"previewSubject"
+).innerText =
+document.getElementById(
+"subject"
+).value;
+
+
+document.getElementById(
+"previewStory"
+).innerText =
+document.getElementById(
+"story"
+).value;
+
+
+const reviewPreview =
+document.getElementById(
+"reviewPreview"
+);
+
+
+if (
+document.getElementById(
+"reviewMode"
+).checked
+) {
+
+
+reviewPreview.style.display =
+"block";
+
+
+document.getElementById(
+"previewRating"
+).innerText =
+document.getElementById(
+"rating"
+).value;
+
+
+document.getElementById(
+"previewPros"
+).innerText =
+document.getElementById(
+"pros"
+).value;
+
+
+document.getElementById(
+"previewCons"
+).innerText =
+document.getElementById(
+"cons"
+).value;
+
+
+document.getElementById(
+"previewWorth"
+).innerText =
+document.getElementById(
+"worthPlaying"
+).value;
+
+}
+else {
+
+
+reviewPreview.style.display =
+"none";
+
+}
+
 
 showStep(4);
 
 }
 
-function backToStep3(){
 
-    showStep(3);
+// ============================================================
+// READ THUMBNAIL
+// ============================================================
+
+function readThumbnail(file) {
+
+
+return new Promise(
+function (resolve, reject) {
+
+
+if (!file) {
+
+resolve({
+
+data: "",
+
+name: ""
+
+});
+
+return;
 
 }
 
-// =========================
-// Publish
-// =========================
+
+const reader =
+new FileReader();
+
+
+reader.onload =
+function () {
+
+
+resolve({
+
+data:
+reader.result,
+
+name:
+file.name
+
+});
+
+};
+
+
+reader.onerror =
+function () {
+
+
+reject(
+new Error(
+"Could not read the thumbnail."
+)
+);
+
+};
+
+
+reader.readAsDataURL(
+file
+);
+
+}
+);
+
+}
+
+
+// ============================================================
+// PUBLISH
+// ============================================================
 
 async function publishArticle() {
 
-    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbw0aCmOxJDqsZh-tZVJO8SR_JDszS8zWuAN8p2MfMM97NU0Abd_CJDgRnOMZZ_3D5D6/exec";
 
-    const title = document.getElementById("articleTitle").value;
-    const thumbnailInput = document.getElementById("thumbnail");
-
-    const game = document.getElementById("gameName").value;
-    const category = document.getElementById("category").value;
-    const device = document.getElementById("device").value;
-    const video = document.getElementById("videoLink").value;
-
-    const subject = document.getElementById("subject").value;
-    const story = document.getElementById("story").value;
-
-    const reviewMode =
-        document.getElementById("reviewMode").checked;
-
-    const rating =
-        document.getElementById("rating").value;
-
-    const pros =
-        document.getElementById("pros").value;
-
-    const cons =
-        document.getElementById("cons").value;
-
-    const worthPlaying =
-        document.getElementById("worthPlaying").value;
+const publishButton =
+document.querySelector(
+".publish-btn"
+);
 
 
-    // =========================
-    // Basic Check
-    // =========================
-
-    if (!title.trim()) {
-
-        alert("Please enter an Article Title.");
-
-        return;
-    }
+const originalButtonText =
+publishButton
+?
+publishButton.innerHTML
+:
+"🚀 Publish Article";
 
 
-    // =========================
-// Thumbnail
-// =========================
+try {
+
+
+const title =
+document.getElementById(
+"articleTitle"
+).value.trim();
+
+
+const thumbnailInput =
+document.getElementById(
+"thumbnail"
+);
+
+
+const game =
+document.getElementById(
+"gameName"
+).value.trim();
+
+
+const category =
+document.getElementById(
+"category"
+).value;
+
+
+const device =
+document.getElementById(
+"device"
+).value.trim();
+
+
+const video =
+document.getElementById(
+"videoLink"
+).value.trim();
+
+
+const subject =
+document.getElementById(
+"subject"
+).value;
+
+
+const story =
+document.getElementById(
+"story"
+).value.trim();
+
+
+const reviewMode =
+document.getElementById(
+"reviewMode"
+).checked;
+
+
+const rating =
+document.getElementById(
+"rating"
+).value;
+
+
+const pros =
+document.getElementById(
+"pros"
+).value.trim();
+
+
+const cons =
+document.getElementById(
+"cons"
+).value.trim();
+
+
+const worthPlaying =
+document.getElementById(
+"worthPlaying"
+).value;
+
+
+if (!title) {
+
+alert(
+"Please enter an Article Title."
+);
+
+return;
+
+}
+
+
+if (publishButton) {
+
+publishButton.disabled =
+true;
+
+publishButton.innerHTML =
+"⏳ Publishing...";
+
+}
+
+
+// ==========================================================
+// THUMBNAIL
+// ==========================================================
 
 let thumbnail = "";
+
 let thumbnailName = "";
 
-if (thumbnailInput.files.length > 0) {
 
-    const file = thumbnailInput.files[0];
+if (
+thumbnailInput &&
+thumbnailInput.files.length > 0
+) {
 
-    thumbnailName = file.name;
 
-    thumbnail = await new Promise(function(resolve, reject) {
+const image =
+await readThumbnail(
+thumbnailInput.files[0]
+);
 
-        const reader = new FileReader();
 
-        reader.onload = function() {
+thumbnail =
+image.data;
 
-            resolve(reader.result);
 
-        };
-
-        reader.onerror = function() {
-
-            reject(reader.error);
-
-        };
-
-        reader.readAsDataURL(file);
-
-    });
+thumbnailName =
+image.name;
 
 }
 
 
-    // =========================
-    // Send Everything
-    // =========================
+// ==========================================================
+// ARTICLE DATA
+// ==========================================================
 
-    const articleData = {
-
-        title: title,
-
-        thumbnail: thumbnail,
-        thumbnailName: thumbnailName,
-        game: game,
-
-        category: category,
-
-        device: device,
-
-        video: video,
-
-        subject: subject,
-
-        story: story,
-
-        reviewMode: reviewMode,
-
-        rating: rating,
-
-        pros: pros,
-
-        cons: cons,
-
-        worthPlaying: worthPlaying
-
-    };
+const articleData = {
 
 
-    try {
-
-        const response = await fetch(WEB_APP_URL, {
-
-            method: "POST",
-
-            headers: {
-
-                "Content-Type":
-                    "text/plain;charset=utf-8"
-
-            },
-
-            body:
-                JSON.stringify(articleData)
-
-        });
+title:
+title,
 
 
-        const result =
-            await response.text();
+thumbnail:
+thumbnail,
 
 
-        console.log("Publisher response:", result);
+thumbnailName:
+thumbnailName,
 
 
-        alert(
-            "🎉 Article submitted successfully!"
-        );
+game:
+game,
 
 
-    } catch (error) {
+category:
+category,
 
-        console.error(error);
 
-        alert(
-            "❌ Something went wrong while publishing."
-        );
+device:
+device,
 
-    }
+
+video:
+video,
+
+
+subject:
+subject,
+
+
+story:
+story,
+
+
+reviewMode:
+reviewMode,
+
+
+rating:
+rating,
+
+
+pros:
+pros,
+
+
+cons:
+cons,
+
+
+worthPlaying:
+worthPlaying
+
+};
+
+
+// ==========================================================
+// SEND TO APPS SCRIPT
+// ==========================================================
+
+console.log(
+"Sending article to Pluffino Publisher..."
+);
+
+
+const response =
+await fetch(
+WEB_APP_URL,
+{
+
+method:
+"POST",
+
+
+headers:
+{
+
+"Content-Type":
+"text/plain;charset=utf-8"
+
+},
+
+
+body:
+JSON.stringify(
+articleData
+)
+
+}
+);
+
+
+const resultText =
+await response.text();
+
+
+console.log(
+"Publisher response:",
+resultText
+);
+
+
+let result = null;
+
+
+try {
+
+result =
+JSON.parse(
+resultText
+);
+
+}
+catch (parseError) {
+
+console.log(
+"Response was not JSON."
+);
 
 }
 
+
+if (
+result &&
+result.success === false
+) {
+
+throw new Error(
+result.error ||
+"The publisher returned an error."
+);
+
+}
+
+
+alert(
+"🎉 Article published successfully!"
+);
+
+
+}
+catch (error) {
+
+
+console.error(
+"Publish error:",
+error
+);
+
+
+alert(
+
+"❌ Publishing failed.\n\n" +
+
+(
+error.message ||
+"Please try again."
+)
+
+);
+
+
+}
+finally {
+
+
+if (publishButton) {
+
+publishButton.disabled =
+false;
+
+publishButton.innerHTML =
+originalButtonText;
+
+}
+
+}
+
+}
 
 </script>
 
 </body>
+
 </html>
