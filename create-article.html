@@ -630,17 +630,39 @@ async function publishArticle() {
 
 
     // =========================
-    // Thumbnail
-    // =========================
+// Thumbnail
+// =========================
 
-    let thumbnail = "";
+let thumbnail = "";
+let thumbnailName = "";
 
-    if (thumbnailInput.files.length > 0) {
+if (thumbnailInput.files.length > 0) {
 
-        thumbnail =
-            thumbnailInput.files[0].name;
+    const file = thumbnailInput.files[0];
 
-    }
+    thumbnailName = file.name;
+
+    thumbnail = await new Promise(function(resolve, reject) {
+
+        const reader = new FileReader();
+
+        reader.onload = function() {
+
+            resolve(reader.result);
+
+        };
+
+        reader.onerror = function() {
+
+            reject(reader.error);
+
+        };
+
+        reader.readAsDataURL(file);
+
+    });
+
+}
 
 
     // =========================
@@ -652,7 +674,7 @@ async function publishArticle() {
         title: title,
 
         thumbnail: thumbnail,
-
+        thumbnailName: thumbnailName,
         game: game,
 
         category: category,
