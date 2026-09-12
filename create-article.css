@@ -1,531 +1,633 @@
-/*======================================
-        PLUFFINO STUDIO
-      CREATE ARTICLE PAGE
-======================================*/
+/* =========================================================
+   PLUFFINO STUDIO
+   CREATE ARTICLE PAGE
+   Mobile-friendly final CSS
+   ========================================================= */
 
-/* ---------- Reset ---------- */
+/* ---------- RESET ---------- */
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* ---------- Body ---------- */
 
-body{
+/* ---------- BODY ---------- */
 
-    font-family:Arial, Helvetica, sans-serif;
-
-    color:white;
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
 
     background:
-    linear-gradient(rgba(18,0,30,.85),rgba(18,0,30,.85)),
-    url("d756804e-32b5-4997-a4bb-74c7b04e7f3f.png");
+        linear-gradient(
+            rgba(18, 0, 30, 0.78),
+            rgba(18, 0, 30, 0.88)
+        ),
+        url("d756804e-32b5-4997-a4bb-74c7b04e7f3f.png");
 
-    background-size:cover;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 
-    background-position:center;
-
-    background-attachment:fixed;
-
-    min-height:100vh;
-
+    min-height: 100vh;
 }
 
-/* ---------- Main Container ---------- */
 
-.creator-container{
+/* ---------- MAIN CONTAINER ---------- */
 
-    width:90%;
-
-    max-width:900px;
-
-    margin:60px auto;
-
+.creator-container {
+    width: 92%;
+    max-width: 900px;
+    margin: 45px auto 70px;
 }
 
-/* ---------- Logo ---------- */
 
-.creator-logo{
+/* ---------- HEADER ---------- */
 
-    width:120px;
-
-    display:block;
-
-    margin:0 auto 20px;
-
+.creator-header {
+    text-align: center;
+    margin-bottom: 45px;
 }
 
-/* ---------- Heading ---------- */
+.creator-logo {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 22px;
+}
 
-.creator-container h1{
-
-    text-align:center;
-
-    color:#FF00CC;
-
-    font-size:46px;
+.creator-header h1 {
+    color: #ff00cc;
+    font-size: clamp(38px, 7vw, 58px);
+    line-height: 1.1;
 
     text-shadow:
-
-    0 0 12px #FF00CC,
-
-    0 0 28px #FF00CC;
-
+        0 0 12px #ff00cc,
+        0 0 28px rgba(255, 0, 204, 0.75);
 }
 
-/* ---------- Subtitle ---------- */
-
-.subtitle{
-
-    text-align:center;
-
-    color:#DDDDDD;
-
-    margin-top:15px;
-
-    margin-bottom:40px;
-
-    line-height:1.7;
-
-}
-/*======================================
-        PART 2 - PROGRESS BAR
-======================================*/
-
-.progress-container{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    margin:50px 0;
-
-    position:relative;
-
+.creator-header p {
+    margin-top: 15px;
+    color: #eeeeee;
+    font-size: clamp(18px, 3vw, 24px);
+    line-height: 1.5;
 }
 
-/* Connecting Lines */
 
-.line{
+/* ---------- PROGRESS BAR ---------- */
 
-    flex:1;
+.progress-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-    height:4px;
-
-    background:rgba(255,255,255,.15);
-
-    margin:0 10px;
-
-    border-radius:20px;
-
+    width: 100%;
+    margin: 35px 0 50px;
+    gap: 12px;
 }
 
-/* Step */
+.progress-step {
+    flex: 1;
 
-.progress-step{
+    text-align: center;
 
-    display:flex;
+    color: #aaaaaa;
+    font-size: 17px;
+    font-weight: 600;
 
-    flex-direction:column;
+    padding: 12px 4px;
 
-    align-items:center;
-
-    z-index:2;
-
+    transition: 0.25s;
 }
 
-/* Circle */
+.progress-step.active {
+    color: #ffffff;
 
-.circle{
-
-    width:55px;
-
-    height:55px;
-
-    border-radius:50%;
-
-    background:rgba(255,255,255,.08);
-
-    border:2px solid #BB66FF;
-
-    color:white;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    font-size:22px;
-
-    font-weight:bold;
-
-    transition:.35s;
-
+    text-shadow:
+        0 0 10px #ff00cc,
+        0 0 20px rgba(255, 0, 204, 0.55);
 }
 
-/* Active Step */
+.progress-step.completed {
+    color: #dd99ff;
+}
 
-.progress-step.active .circle{
 
-    background:#FF00CC;
+/* ---------- STEPS ---------- */
 
-    border-color:#FF00CC;
+.step {
+    display: none;
+
+    width: 100%;
+
+    background: rgba(20, 0, 35, 0.72);
+
+    border: 1px solid rgba(187, 102, 255, 0.75);
+
+    border-radius: 22px;
+
+    padding: 35px;
 
     box-shadow:
+        0 0 25px rgba(255, 0, 204, 0.18);
 
-        0 0 15px #FF00CC,
-
-        0 0 30px rgba(255,0,204,.6);
-
+    animation: fadeIn 0.35s ease;
 }
 
-/* Step Name */
-
-.progress-step span{
-
-    margin-top:10px;
-
-    font-size:14px;
-
-    color:#DDDDDD;
-
-    text-align:center;
-
+.step.active {
+    display: block;
 }
 
-/* Active Text */
 
-.progress-step.active span{
+/* ---------- STEP HEADINGS ---------- */
 
-    color:white;
+.step h2 {
+    color: #ffffff;
 
-    font-weight:bold;
+    font-size: clamp(28px, 5vw, 40px);
 
+    margin-bottom: 30px;
+
+    text-shadow:
+        0 0 10px rgba(255, 0, 204, 0.55);
 }
 
-/* Completed Step */
 
-.progress-step.completed .circle{
+/* ---------- LABELS ---------- */
 
-    background:#00D26A;
+.step label {
+    display: block;
 
-    border-color:#00D26A;
+    width: 100%;
+
+    margin: 20px 0 8px;
+
+    color: #eeeeee;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    line-height: 1.4;
+}
+
+
+/* ---------- INPUTS / SELECTS / TEXTAREA ---------- */
+
+.step input[type="text"],
+.step input[type="url"],
+.step input[type="file"],
+.step select,
+.step textarea {
+    display: block;
+
+    width: 100%;
+
+    padding: 14px 16px;
+
+    border-radius: 12px;
+
+    border: 1px solid #bb66ff;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    color: #ffffff;
+
+    font-family: inherit;
+    font-size: 16px;
+
+    outline: none;
+
+    transition:
+        border-color 0.25s,
+        box-shadow 0.25s,
+        background 0.25s;
+}
+
+
+/* ---------- FILE INPUT ---------- */
+
+.step input[type="file"] {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.step input[type="file"]::file-selector-button {
+    margin-right: 12px;
+
+    padding: 10px 14px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #ff00cc;
+    color: #ffffff;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+/* ---------- PLACEHOLDERS ---------- */
+
+.step input::placeholder,
+.step textarea::placeholder {
+    color: #bbbbbb;
+}
+
+
+/* ---------- FOCUS ---------- */
+
+.step input:focus,
+.step select:focus,
+.step textarea:focus {
+    border-color: #ff00cc;
+
+    background: rgba(255, 0, 204, 0.08);
 
     box-shadow:
-
-        0 0 15px #00D26A,
-
-        0 0 25px rgba(0,210,106,.45);
-
-}
-/*======================================
-        PART 3 - STEP CARDS & FORMS
-======================================*/
-
-/* Step Container */
-
-.step{
-
-    display:none;
-
+        0 0 12px rgba(255, 0, 204, 0.45);
 }
 
-.step.active{
 
-    display:block;
+/* ---------- SELECT OPTIONS ---------- */
 
-    animation:fadeIn .4s ease;
-
+.step select {
+    cursor: pointer;
 }
 
-/* Card */
-
-.step-box{
-
-    background:rgba(255,255,255,.06);
-
-    border:1px solid #BB66FF;
-
-    border-radius:22px;
-
-    padding:35px;
-
-    box-shadow:0 0 25px rgba(255,0,204,.25);
-
+.step option {
+    background: #2b1038;
+    color: #ffffff;
 }
 
-/* Step Title */
 
-.step-box h2{
+/* ---------- TEXTAREA ---------- */
 
-    color:#FF00CC;
-
-    margin-bottom:30px;
-
-    text-align:center;
-
-    text-shadow:0 0 12px #FF00CC;
-
+.step textarea {
+    min-height: 170px;
+    resize: vertical;
+    line-height: 1.6;
 }
 
-/* Labels */
 
-.step-box label{
+/* ---------- REVIEW TOGGLE ---------- */
 
-    display:block;
+.review-toggle {
+    margin-top: 25px;
+    padding: 15px;
 
-    margin-top:20px;
+    border-radius: 12px;
 
-    margin-bottom:8px;
+    background: rgba(255, 255, 255, 0.05);
 
-    font-weight:bold;
-
-    color:#EEEEEE;
-
+    border: 1px solid rgba(187, 102, 255, 0.35);
 }
 
-/* Inputs */
+.review-toggle label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 
-.step-box input,
+    margin: 0;
 
-.step-box select,
-
-.step-box textarea{
-
-    width:100%;
-
-    padding:14px 16px;
-
-    border-radius:12px;
-
-    border:1px solid #BB66FF;
-
-    background:rgba(255,255,255,.08);
-
-    color:white;
-
-    font-size:16px;
-
-    outline:none;
-
-    transition:.25s;
-
+    cursor: pointer;
 }
 
-/* Placeholder */
+.review-toggle input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
 
-.step-box input::placeholder,
+    accent-color: #ff00cc;
 
-.step-box textarea::placeholder{
-
-    color:#BBBBBB;
-
+    cursor: pointer;
 }
 
-/* Focus */
 
-.step-box input:focus,
+/* ---------- BUTTON ROW ---------- */
 
-.step-box select:focus,
+.button-row {
+    display: flex;
 
-.step-box textarea:focus{
+    justify-content: space-between;
+    align-items: center;
 
-    border-color:#FF00CC;
+    width: 100%;
 
-    box-shadow:0 0 12px rgba(255,0,204,.5);
+    margin-top: 35px;
 
+    gap: 15px;
 }
 
-/* Textarea */
 
-.step-box textarea{
+/* ---------- BUTTONS ---------- */
 
-    min-height:170px;
+.back-btn,
+.next-btn,
+.publish-btn {
+    border: none;
 
-    resize:vertical;
+    border-radius: 12px;
 
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s,
+        background 0.2s,
+        box-shadow 0.2s,
+        opacity 0.2s;
 }
 
-/* Dropdown */
 
-.step-box select{
+.back-btn {
+    padding: 14px 30px;
 
-    cursor:pointer;
-
+    background: #444444;
 }
 
-/* Dropdown Options */
 
-.step-box option{
+.back-btn:hover {
+    background: #5b5b5b;
 
-    background:#2B1038;
-
-    color:white;
-
+    transform: translateY(-2px);
 }
 
-/* Fade Animation */
 
-@keyframes fadeIn{
+.next-btn {
+    padding: 14px 35px;
 
-    from{
+    margin-left: auto;
 
-        opacity:0;
-
-        transform:translateY(20px);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:translateY(0);
-
-    }
-
-}
-/*======================================
-        PART 4 - BUTTONS & SUCCESS
-======================================*/
-
-/* Button Container */
-
-.buttons{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    margin-top:35px;
-
-    gap:15px;
-
-}
-
-/* Back Button */
-
-.back-btn{
-
-    padding:14px 30px;
-
-    border:none;
-
-    border-radius:12px;
-
-    background:#444;
-
-    color:white;
-
-    font-size:16px;
-
-    font-weight:bold;
-
-    cursor:pointer;
-
-    transition:.3s;
-
-}
-
-.back-btn:hover{
-
-    background:#666;
-
-    transform:translateY(-3px);
-
-}
-
-/* Next Button */
-
-.next-btn{
-
-    padding:14px 35px;
-
-    border:none;
-
-    border-radius:12px;
-
-    background:#FF00CC;
-
-    color:white;
-
-    font-size:16px;
-
-    font-weight:bold;
-
-    cursor:pointer;
-
-    transition:.3s;
-
-    box-shadow:0 0 18px rgba(255,0,204,.45);
-
-}
-
-.next-btn:hover{
-
-    background:#ff33d6;
-
-    transform:translateY(-3px);
+    background: #ff00cc;
 
     box-shadow:
-
-        0 0 18px #FF00CC,
-
-        0 0 35px rgba(255,0,204,.6);
-
+        0 0 18px rgba(255, 0, 204, 0.45);
 }
 
-/* Success Message */
 
-.success-message{
+.next-btn:hover {
+    background: #ff33d6;
 
-    display:none;
+    transform: translateY(-2px);
 
-    margin-bottom:25px;
-
-    padding:16px;
-
-    border-radius:12px;
-
-    background:rgba(0,210,106,.18);
-
-    border:1px solid #00D26A;
-
-    color:#7CFFAE;
-
-    font-weight:bold;
-
-    text-align:center;
-
-    animation:successPop .4s ease;
-
+    box-shadow:
+        0 0 18px #ff00cc,
+        0 0 35px rgba(255, 0, 204, 0.6);
 }
 
-/* Success Animation */
 
-@keyframes successPop{
+.publish-btn {
+    padding: 15px 30px;
 
-    from{
+    margin-left: auto;
 
-        opacity:0;
+    background: #ff00cc;
 
-        transform:scale(.9);
+    box-shadow:
+        0 0 18px rgba(255, 0, 204, 0.5);
+}
 
+
+.publish-btn:hover {
+    background: #ff33d6;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 0 18px #ff00cc,
+        0 0 35px rgba(255, 0, 204, 0.65);
+}
+
+
+.back-btn:disabled,
+.next-btn:disabled,
+.publish-btn:disabled {
+    opacity: 0.6;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+
+/* ---------- PREVIEW ---------- */
+
+.preview-box {
+    width: 100%;
+
+    padding: 25px;
+
+    border-radius: 16px;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    border: 1px solid rgba(187, 102, 255, 0.5);
+
+    overflow-wrap: anywhere;
+}
+
+
+.preview-box h3 {
+    color: #ff00cc;
+
+    margin-bottom: 15px;
+
+    line-height: 1.4;
+}
+
+
+.preview-box p {
+    color: #eeeeee;
+
+    line-height: 1.7;
+
+    margin-bottom: 12px;
+
+    white-space: pre-wrap;
+}
+
+
+.preview-info {
+    margin-bottom: 25px;
+}
+
+
+/* ---------- SUCCESS MESSAGE ---------- */
+
+.success-message {
+    display: none;
+
+    margin-bottom: 25px;
+
+    padding: 16px;
+
+    border-radius: 12px;
+
+    background: rgba(0, 210, 106, 0.18);
+
+    border: 1px solid #00d26a;
+
+    color: #7cffae;
+
+    font-weight: bold;
+
+    text-align: center;
+
+    animation: successPop 0.4s ease;
+}
+
+
+/* ---------- ANIMATIONS ---------- */
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
     }
 
-    to{
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 
-        opacity:1;
+}
 
-        transform:scale(1);
 
+@keyframes successPop {
+
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .creator-container {
+        width: 94%;
+        margin: 25px auto 50px;
+    }
+
+
+    .creator-header {
+        margin-bottom: 30px;
+    }
+
+
+    .creator-logo {
+        width: 105px;
+        height: 105px;
+    }
+
+
+    .progress-container {
+        margin: 25px 0 30px;
+        gap: 4px;
+    }
+
+
+    .progress-step {
+        font-size: 13px;
+        padding: 8px 2px;
+    }
+
+
+    .step {
+        padding: 22px 18px;
+        border-radius: 17px;
+    }
+
+
+    .step h2 {
+        font-size: 27px;
+        margin-bottom: 22px;
+    }
+
+
+    .step label {
+        font-size: 15px;
+        margin-top: 18px;
+    }
+
+
+    .step input[type="text"],
+    .step input[type="url"],
+    .step input[type="file"],
+    .step select,
+    .step textarea {
+        font-size: 16px;
+        padding: 13px 12px;
+    }
+
+
+    .button-row {
+        margin-top: 28px;
+    }
+
+
+    .back-btn,
+    .next-btn,
+    .publish-btn {
+        font-size: 15px;
+        padding: 13px 20px;
+    }
+
+
+    .preview-box {
+        padding: 18px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .progress-step {
+        font-size: 11px;
+    }
+
+
+    .step {
+        padding: 18px 14px;
+    }
+
+
+    .button-row {
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+
+
+    .back-btn,
+    .next-btn,
+    .publish-btn {
+        width: 100%;
+        margin-left: 0;
     }
 
 }
