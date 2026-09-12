@@ -582,8 +582,6 @@ function backToStep3(){
 
 }
 
-
-
 // =========================
 // Publish
 // =========================
@@ -593,40 +591,136 @@ async function publishArticle() {
     const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbw0aCmOxJDqsZh-tZVJO8SR_JDszS8zWuAN8p2MfMM97NU0Abd_CJDgRnOMZZ_3D5D6/exec";
 
     const title = document.getElementById("articleTitle").value;
-    const thumbnail = document.getElementById("thumbnail").value;
+    const thumbnailInput = document.getElementById("thumbnail");
 
-    if (!title) {
-        alert("Please enter an article title.");
+    const game = document.getElementById("gameName").value;
+    const category = document.getElementById("category").value;
+    const device = document.getElementById("device").value;
+    const video = document.getElementById("videoLink").value;
+
+    const subject = document.getElementById("subject").value;
+    const story = document.getElementById("story").value;
+
+    const reviewMode =
+        document.getElementById("reviewMode").checked;
+
+    const rating =
+        document.getElementById("rating").value;
+
+    const pros =
+        document.getElementById("pros").value;
+
+    const cons =
+        document.getElementById("cons").value;
+
+    const worthPlaying =
+        document.getElementById("worthPlaying").value;
+
+
+    // =========================
+    // Basic Check
+    // =========================
+
+    if (!title.trim()) {
+
+        alert("Please enter an Article Title.");
+
         return;
     }
+
+
+    // =========================
+    // Thumbnail
+    // =========================
+
+    let thumbnail = "";
+
+    if (thumbnailInput.files.length > 0) {
+
+        thumbnail =
+            thumbnailInput.files[0].name;
+
+    }
+
+
+    // =========================
+    // Send Everything
+    // =========================
+
+    const articleData = {
+
+        title: title,
+
+        thumbnail: thumbnail,
+
+        game: game,
+
+        category: category,
+
+        device: device,
+
+        video: video,
+
+        subject: subject,
+
+        story: story,
+
+        reviewMode: reviewMode,
+
+        rating: rating,
+
+        pros: pros,
+
+        cons: cons,
+
+        worthPlaying: worthPlaying
+
+    };
+
 
     try {
 
         const response = await fetch(WEB_APP_URL, {
+
             method: "POST",
+
             headers: {
-                "Content-Type": "text/plain;charset=utf-8"
+
+                "Content-Type":
+                    "text/plain;charset=utf-8"
+
             },
-            body: JSON.stringify({
-                title: title,
-                thumbnail: thumbnail
-            })
+
+            body:
+                JSON.stringify(articleData)
+
         });
 
-        const result = await response.text();
 
-        alert("🎉 Article submitted successfully!");
+        const result =
+            await response.text();
 
-        console.log(result);
+
+        console.log("Publisher response:", result);
+
+
+        alert(
+            "🎉 Article submitted successfully!"
+        );
+
 
     } catch (error) {
 
         console.error(error);
 
-        alert("❌ Something went wrong while publishing.");
+        alert(
+            "❌ Something went wrong while publishing."
+        );
 
     }
+
 }
+
 
 </script>
 
