@@ -14,6 +14,7 @@
 
 <body>
 
+
     <!-- ================= HEADER ================= -->
 
     <header>
@@ -30,6 +31,7 @@
 
     </header>
 
+
     <!-- ================= NAVIGATION ================= -->
 
     <nav class="navbar">
@@ -42,6 +44,7 @@
 
     </nav>
 
+
     <!-- ================= FEATURED GAMES ================= -->
 
     <section class="games-section">
@@ -50,9 +53,9 @@
             🎮 Featured Games
         </h2>
 
+
         <div class="games-container">
 
-            <!-- Game Cards -->
 
             <!-- Crafting & Building -->
 
@@ -76,6 +79,7 @@
 
             </div>
 
+
             <!-- Craftsman -->
 
             <div class="game-card">
@@ -97,6 +101,7 @@
                 </a>
 
             </div>
+
 
             <!-- Lokicraft -->
 
@@ -120,6 +125,7 @@
 
             </div>
 
+
             <!-- Minecraft -->
 
             <div class="game-card">
@@ -141,6 +147,7 @@
                 </a>
 
             </div>
+
 
             <!-- Other Minecraft Likes -->
 
@@ -164,9 +171,48 @@
 
             </div>
 
+
         </div>
 
     </section>
+
+
+
+    <!-- ================= RECENT ARTICLES ================= -->
+
+    <section class="recent-articles-section">
+
+        <h2 class="section-title">
+            📰 Recent Articles
+        </h2>
+
+        <p class="recent-articles-subtitle">
+            Fresh gaming articles from the Pluffino community.
+        </p>
+
+
+        <div id="recentArticles"
+             class="recent-articles-container">
+
+            <p class="articles-loading">
+                Loading recent articles...
+            </p>
+
+        </div>
+
+
+        <p id="articlesEmpty"
+           class="articles-empty"
+           style="display: none;">
+
+            No articles published yet.
+
+        </p>
+
+
+    </section>
+
+
 
     <!-- ================= TOOLS ================= -->
 
@@ -188,25 +234,33 @@
 
     </section>
 
-    <!-- ================= CREATOR HUB ================= -->
- 
-   <div class="admin-section">
 
-    <div class="creator-badge">
-        FOR CONTENT CREATORS
+
+    <!-- ================= CREATOR HUB ================= -->
+
+    <div class="admin-section">
+
+        <div class="creator-badge">
+            FOR CONTENT CREATORS
+        </div>
+
+        <h2>
+            🚀 Pluffino Studio
+        </h2>
+
+        <p>
+            Share your gaming experience, help players discover great games, and grow your YouTube or TikTok audience through your articles.
+        </p>
+
+        <a href="create-article.html"
+           class="create-btn">
+
+            ➕ Create Article
+
+        </a>
+
     </div>
 
-    <h2>🚀 Pluffino Studio</h2>
-
-    <p>
-        Share your gaming experience, help players discover great games, and grow your YouTube or TikTok audience through your articles.
-    </p>
-
-    <a href="create-article.html" class="create-btn">
-        ➕ Create Article
-    </a>
-
-   </div>
 
 
     <!-- ================= FOOTER ================= -->
@@ -214,12 +268,294 @@
     <footer>
 
         <p>
-
             © 2026 Pluffino Gaming Hub
-
         </p>
 
     </footer>
+
+
+
+    <!-- ================= RECENT ARTICLES SCRIPT ================= -->
+
+    <script>
+
+        async function loadRecentArticles() {
+
+            const container = document.getElementById("recentArticles");
+            const emptyMessage = document.getElementById("articlesEmpty");
+
+            try {
+
+                /*
+                 * articles.json will be created and updated
+                 * automatically by Pluffino Studio.
+                 */
+
+                const response = await fetch(
+                    "articles.json?v=" + Date.now()
+                );
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        "Could not load articles.json"
+                    );
+
+                }
+
+
+                const articles = await response.json();
+
+
+                container.innerHTML = "";
+
+
+                if (!Array.isArray(articles) ||
+                    articles.length === 0) {
+
+                    emptyMessage.style.display = "block";
+
+                    return;
+
+                }
+
+
+                /*
+                 * Newest articles first.
+                 *
+                 * The backend will already place the newest
+                 * article at the beginning, but we also sort
+                 * here as an extra safety measure.
+                 */
+
+                articles.sort(function(a, b) {
+
+                    const dateA = new Date(
+                        a.publishedAt || 0
+                    );
+
+                    const dateB = new Date(
+                        b.publishedAt || 0
+                    );
+
+                    return dateB - dateA;
+
+                });
+
+
+                /*
+                 * Show the most recent articles.
+                 */
+
+                const recentArticles =
+                    articles.slice(0, 6);
+
+
+                recentArticles.forEach(function(article) {
+
+
+                    const card =
+                        document.createElement("article");
+
+                    card.className =
+                        "recent-article-card";
+
+
+                    /*
+                     * Thumbnail
+                     */
+
+                    const thumbnail =
+                        document.createElement("img");
+
+                    thumbnail.className =
+                        "recent-article-thumbnail";
+
+                    thumbnail.alt =
+                        article.title || "Gaming Article";
+
+                    thumbnail.src =
+                        article.thumbnail ||
+                        "articles/images/default-thumbnail.jpg";
+
+
+                    thumbnail.onerror =
+                        function() {
+
+                            this.style.display = "none";
+
+                        };
+
+
+                    /*
+                     * Card content
+                     */
+
+                    const content =
+                        document.createElement("div");
+
+                    content.className =
+                        "recent-article-content";
+
+
+                    /*
+                     * Game / category
+                     */
+
+                    const meta =
+                        document.createElement("div");
+
+                    meta.className =
+                        "recent-article-meta";
+
+
+                    const game =
+                        article.game || "Gaming";
+
+                    const category =
+                        article.category || "";
+
+
+                    if (category) {
+
+                        meta.textContent =
+                            game + " • " + category;
+
+                    } else {
+
+                        meta.textContent =
+                            game;
+
+                    }
+
+
+                    /*
+                     * Title
+                     */
+
+                    const title =
+                        document.createElement("h3");
+
+                    title.className =
+                        "recent-article-title";
+
+                    title.textContent =
+                        article.title ||
+                        "Untitled Article";
+
+
+                    /*
+                     * Date
+                     */
+
+                    const date =
+                        document.createElement("p");
+
+                    date.className =
+                        "recent-article-date";
+
+
+                    if (article.publishedAt) {
+
+                        const publishedDate =
+                            new Date(
+                                article.publishedAt
+                            );
+
+
+                        if (!isNaN(
+                            publishedDate.getTime()
+                        )) {
+
+                            date.textContent =
+                                publishedDate.toLocaleDateString(
+                                    "en-US",
+                                    {
+                                        year: "numeric",
+                                        month: "short",
+                                        day: "numeric"
+                                    }
+                                );
+
+                        }
+
+                    }
+
+
+                    /*
+                     * Read Article button
+                     */
+
+                    const button =
+                        document.createElement("a");
+
+                    button.className =
+                        "view-btn recent-article-btn";
+
+                    button.textContent =
+                        "Read Article";
+
+
+                    button.href =
+                        article.url || "#";
+
+
+                    /*
+                     * Build card
+                     */
+
+                    content.appendChild(meta);
+
+                    content.appendChild(title);
+
+                    if (date.textContent) {
+
+                        content.appendChild(date);
+
+                    }
+
+                    content.appendChild(button);
+
+
+                    card.appendChild(thumbnail);
+
+                    card.appendChild(content);
+
+
+                    container.appendChild(card);
+
+                });
+
+
+            } catch (error) {
+
+                console.error(
+                    "Recent Articles Error:",
+                    error
+                );
+
+
+                container.innerHTML = "";
+
+                emptyMessage.style.display =
+                    "block";
+
+                emptyMessage.textContent =
+                    "Articles are currently unavailable.";
+
+            }
+
+        }
+
+
+        /*
+         * Load articles when the homepage opens.
+         */
+
+        loadRecentArticles();
+
+    </script>
+
 
 </body>
 
