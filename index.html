@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,6 +12,7 @@
     <link rel="stylesheet" href="style.css">
 
 </head>
+
 
 <body>
 
@@ -43,139 +45,6 @@
         <a href="Minecraft.html">Minecraft</a>
 
     </nav>
-
-
-    <!-- ================= FEATURED GAMES ================= -->
-
-    <section class="games-section">
-
-        <h2 class="section-title">
-            🎮 Featured Games
-        </h2>
-
-
-        <div class="games-container">
-
-
-            <!-- Crafting & Building -->
-
-            <div class="game-card">
-
-                <img src="crafting and building.jpg"
-                     alt="Crafting & Building">
-
-                <h3>Crafting & Building</h3>
-
-                <p>
-                    Secrets, skins, emotes and addons.
-                </p>
-
-                <a href="crafting-building.html"
-                   class="view-btn">
-
-                    View Guides
-
-                </a>
-
-            </div>
-
-
-            <!-- Craftsman -->
-
-            <div class="game-card">
-
-                <img src="craftsman.jpg"
-                     alt="Craftsman">
-
-                <h3>Craftsman</h3>
-
-                <p>
-                    Downloads, tips and guides.
-                </p>
-
-                <a href="Craftsman.html"
-                   class="view-btn">
-
-                    View Guides
-
-                </a>
-
-            </div>
-
-
-            <!-- Lokicraft -->
-
-            <div class="game-card">
-
-                <img src="lokicraft.jpg"
-                     alt="Lokicraft">
-
-                <h3>Lokicraft</h3>
-
-                <p>
-                    Tutorials and secrets.
-                </p>
-
-                <a href="lokicraft.html"
-                   class="view-btn">
-
-                    View Guides
-
-                </a>
-
-            </div>
-
-
-            <!-- Minecraft -->
-
-            <div class="game-card">
-
-                <img src="minecraft.jpg"
-                     alt="Minecraft">
-
-                <h3>Minecraft</h3>
-
-                <p>
-                    Guides and gameplay tips.
-                </p>
-
-                <a href="Minecraft.html"
-                   class="view-btn">
-
-                    View Guides
-
-                </a>
-
-            </div>
-
-
-            <!-- Other Minecraft Likes -->
-
-            <div class="game-card">
-
-                <img src="other minecraft copies.png"
-                     alt="Other Minecraft Likes">
-
-                <h3>Other Minecraft Likes</h3>
-
-                <p>
-                    Reviews, Pros & Cons and hidden gems.
-                </p>
-
-                <a href="Other Minecraft Likes.html"
-                   class="view-btn">
-
-                    View Guides
-
-                </a>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
 
 
     <!-- ================= RECENT ARTICLES ================= -->
@@ -281,8 +150,12 @@
 
         async function loadRecentArticles() {
 
-            const container = document.getElementById("recentArticles");
-            const emptyMessage = document.getElementById("articlesEmpty");
+            const container =
+                document.getElementById("recentArticles");
+
+            const emptyMessage =
+                document.getElementById("articlesEmpty");
+
 
             try {
 
@@ -295,6 +168,7 @@
                     "articles.json?v=" + Date.now()
                 );
 
+
                 if (!response.ok) {
 
                     throw new Error(
@@ -304,7 +178,8 @@
                 }
 
 
-                const articles = await response.json();
+                const articles =
+                    await response.json();
 
 
                 container.innerHTML = "";
@@ -330,13 +205,15 @@
 
                 articles.sort(function(a, b) {
 
-                    const dateA = new Date(
-                        a.publishedAt || 0
-                    );
+                    const dateA =
+                        new Date(
+                            a.publishedAt || 0
+                        );
 
-                    const dateB = new Date(
-                        b.publishedAt || 0
-                    );
+                    const dateB =
+                        new Date(
+                            b.publishedAt || 0
+                        );
 
                     return dateB - dateA;
 
@@ -372,7 +249,8 @@
                         "recent-article-thumbnail";
 
                     thumbnail.alt =
-                        article.title || "Gaming Article";
+                        article.title ||
+                        "Gaming Article";
 
                     thumbnail.src =
                         article.thumbnail ||
@@ -410,10 +288,12 @@
 
 
                     const game =
-                        article.game || "Gaming";
+                        article.game ||
+                        "Gaming";
 
                     const category =
-                        article.category || "";
+                        article.category ||
+                        "";
 
 
                     if (category) {
@@ -508,11 +388,13 @@
 
                     content.appendChild(title);
 
+
                     if (date.textContent) {
 
                         content.appendChild(date);
 
                     }
+
 
                     content.appendChild(button);
 
@@ -559,4 +441,6 @@
 
 </body>
 
-    </html>
+</html>
+```
+        
