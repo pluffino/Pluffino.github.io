@@ -21,11 +21,13 @@
         <div class="header-inner">
 
             <a href="index.html" class="logo-link">
+
                 <img
                     src="Picsart_26-04-04_09-01-51-589.png"
                     alt="Pluffino"
                     class="site-logo"
                 >
+
             </a>
 
 
@@ -125,106 +127,16 @@
             </div>
 
 
-            <div class="featured-grid">
+            <!-- Real articles are loaded here automatically -->
 
-                <a
-                    href="#latest-articles"
-                    class="featured-card featured-large"
-                >
+            <div
+                class="featured-grid"
+                id="featuredArticles"
+            >
 
-                    <div class="article-image placeholder-image">
-
-                        <span>
-                            LATEST
-                        </span>
-
-                    </div>
-
-
-                    <div class="article-content">
-
-                        <span class="article-category">
-                            Latest
-                        </span>
-
-                        <h3>
-                            Discover the latest gaming articles
-                        </h3>
-
-                        <p>
-                            Explore the newest gaming experiences,
-                            guides and discoveries from Pluffino.
-                        </p>
-
-                    </div>
-
-                </a>
-
-
-                <a
-                    href="#money-earning-apps"
-                    class="featured-card"
-                >
-
-                    <div class="article-image placeholder-image">
-
-                        <span>
-                            APPS
-                        </span>
-
-                    </div>
-
-
-                    <div class="article-content">
-
-                        <span class="article-category">
-                            Money
-                        </span>
-
-                        <h3>
-                            Money Earning Apps
-                        </h3>
-
-                        <p>
-                            Discover apps and opportunities worth exploring.
-                        </p>
-
-                    </div>
-
-                </a>
-
-
-                <a
-                    href="#gaming-tools"
-                    class="featured-card"
-                >
-
-                    <div class="article-image placeholder-image">
-
-                        <span>
-                            TOOLS
-                        </span>
-
-                    </div>
-
-
-                    <div class="article-content">
-
-                        <span class="article-category">
-                            Tools
-                        </span>
-
-                        <h3>
-                            Gaming Tools &amp; Tips
-                        </h3>
-
-                        <p>
-                            Useful resources and tips for gamers.
-                        </p>
-
-                    </div>
-
-                </a>
+                <div class="article-loading">
+                    Loading featured articles...
+                </div>
 
             </div>
 
@@ -267,8 +179,6 @@
 
             </div>
 
-
-            <!-- Articles are loaded automatically from articles.json -->
 
             <div
                 id="recentArticles"
@@ -606,91 +516,367 @@
 
 
     <!-- =====================================================
-         RECENT ARTICLES SYSTEM
+         ARTICLE SYSTEM
          ===================================================== -->
 
     <script>
 
-        async function loadRecentArticles() {
+        /*
+         * Format article dates
+         */
+
+        function formatArticleDate(dateValue) {
+
+            if (!dateValue) {
+                return "";
+            }
+
+
+            const date =
+                new Date(dateValue);
+
+
+            if (isNaN(date.getTime())) {
+                return "";
+            }
+
+
+            return date.toLocaleDateString(
+                "en-US",
+                {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric"
+                }
+            );
+
+        }
+
+
+
+        /*
+         * Create a Featured Article card
+         */
+
+        function createFeaturedCard(article, index) {
+
+            const card =
+                document.createElement("a");
+
+
+            card.href =
+                article.url || "#";
+
+
+            card.className =
+                index === 0
+                    ? "featured-card featured-large"
+                    : "featured-card";
+
+
+            /*
+             * Image
+             */
+
+            const image =
+                document.createElement("img");
+
+
+            image.className =
+                "article-image";
+
+
+            image.src =
+                article.thumbnail ||
+                "articles/images/default-thumbnail.jpg";
+
+
+            image.alt =
+                article.title ||
+                "Gaming Article";
+
+
+            image.style.width = "100%";
+            image.style.objectFit = "cover";
+            image.style.display = "block";
+
+
+            image.onerror =
+                function() {
+
+                    this.style.display = "none";
+
+                };
+
+
+            /*
+             * Content
+             */
+
+            const content =
+                document.createElement("div");
+
+
+            content.className =
+                "article-content";
+
+
+            /*
+             * Category
+             */
+
+            const category =
+                document.createElement("span");
+
+
+            category.className =
+                "article-category";
+
+
+            const game =
+                article.game ||
+                "Gaming";
+
+
+            const articleCategory =
+                article.category ||
+                "";
+
+
+            category.textContent =
+                articleCategory
+                    ? game + " • " + articleCategory
+                    : game;
+
+
+            /*
+             * Title
+             */
+
+            const title =
+                document.createElement("h3");
+
+
+            title.textContent =
+                article.title ||
+                "Untitled Article";
+
+
+            /*
+             * Description
+
+             * We use the article description if the
+             * published article provides one.
+             */
+
+            const description =
+                document.createElement("p");
+
+
+            if (article.description) {
+
+                description.textContent =
+                    article.description;
+
+            } else {
+
+                description.textContent =
+                    "Read this gaming article on Pluffino Gaming Hub.";
+
+            }
+
+
+            /*
+             * Build card
+             */
+
+            content.appendChild(category);
+
+            content.appendChild(title);
+
+            content.appendChild(description);
+
+
+            card.appendChild(image);
+
+            card.appendChild(content);
+
+
+            return card;
+
+        }
+
+
+
+        /*
+         * Load Featured Articles
+         */
+
+        function loadFeaturedArticles(articles) {
 
             const container =
-                document.getElementById("recentArticles");
-
-            const emptyMessage =
-                document.getElementById("articlesEmpty");
-
-
-            try {
-
-                /*
-                 * Pluffino Studio creates and updates
-                 * articles.json when an article is published.
-                 */
-
-                const response = await fetch(
-                    "articles.json?v=" + Date.now()
+                document.getElementById(
+                    "featuredArticles"
                 );
 
 
-                if (!response.ok) {
+            container.innerHTML = "";
 
-                    throw new Error(
-                        "Could not load articles.json"
+
+            if (
+                !Array.isArray(articles) ||
+                articles.length === 0
+            ) {
+
+                container.innerHTML =
+                    '<p class="article-loading">' +
+                    'No featured articles yet.' +
+                    '</p>';
+
+                return;
+
+            }
+
+
+            /*
+             * Make a copy so we don't change
+             * the main article order.
+             */
+
+            const shuffled =
+                articles.slice();
+
+
+            /*
+             * Randomize the articles.
+             */
+
+            for (
+                let i = shuffled.length - 1;
+                i > 0;
+                i--
+            ) {
+
+                const j =
+                    Math.floor(
+                        Math.random() * (i + 1)
                     );
 
+
+                [
+                    shuffled[i],
+                    shuffled[j]
+                ] =
+                [
+                    shuffled[j],
+                    shuffled[i]
+                ];
+
+            }
+
+
+            /*
+             * Show up to 3 random articles.
+             */
+
+            const featured =
+                shuffled.slice(0, 3);
+
+
+            featured.forEach(
+                function(article, index) {
+
+                    const card =
+                        createFeaturedCard(
+                            article,
+                            index
+                        );
+
+
+                    container.appendChild(card);
+
                 }
+            );
+
+        }
 
 
-                const articles =
-                    await response.json();
+
+        /*
+         * Load Latest Articles
+         */
+
+        function loadLatestArticles(articles) {
+
+            const container =
+                document.getElementById(
+                    "recentArticles"
+                );
 
 
-                container.innerHTML = "";
+            const emptyMessage =
+                document.getElementById(
+                    "articlesEmpty"
+                );
 
 
-                if (
-                    !Array.isArray(articles) ||
-                    articles.length === 0
-                ) {
-
-                    emptyMessage.style.display = "block";
-
-                    return;
-
-                }
+            container.innerHTML = "";
 
 
-                /*
-                 * Newest articles first.
-                 */
+            if (
+                !Array.isArray(articles) ||
+                articles.length === 0
+            ) {
 
-                articles.sort(function(a, b) {
+                emptyMessage.style.display =
+                    "block";
+
+                return;
+
+            }
+
+
+            /*
+             * Newest articles first.
+             */
+
+            articles.sort(
+                function(a, b) {
 
                     const dateA =
-                        new Date(a.publishedAt || 0);
+                        new Date(
+                            a.publishedAt || 0
+                        );
+
 
                     const dateB =
-                        new Date(b.publishedAt || 0);
+                        new Date(
+                            b.publishedAt || 0
+                        );
 
 
                     return dateB - dateA;
 
-                });
+                }
+            );
 
 
-                /*
-                 * Show the newest 6 articles.
-                 */
+            /*
+             * Show newest 6 articles.
+             */
 
-                const recentArticles =
-                    articles.slice(0, 6);
+            const recentArticles =
+                articles.slice(0, 6);
 
 
-                recentArticles.forEach(function(article) {
+            recentArticles.forEach(
+                function(article) {
 
 
                     const card =
-                        document.createElement("article");
+                        document.createElement(
+                            "article"
+                        );
 
 
                     card.className =
@@ -702,7 +888,9 @@
                      */
 
                     const thumbnail =
-                        document.createElement("img");
+                        document.createElement(
+                            "img"
+                        );
 
 
                     thumbnail.className =
@@ -722,17 +910,20 @@
                     thumbnail.onerror =
                         function() {
 
-                            this.style.display = "none";
+                            this.style.display =
+                                "none";
 
                         };
 
 
                     /*
-                     * Card content
+                     * Content
                      */
 
                     const content =
-                        document.createElement("div");
+                        document.createElement(
+                            "div"
+                        );
 
 
                     content.className =
@@ -740,11 +931,13 @@
 
 
                     /*
-                     * Game and category
+                     * Game/category
                      */
 
                     const meta =
-                        document.createElement("div");
+                        document.createElement(
+                            "div"
+                        );
 
 
                     meta.className =
@@ -761,17 +954,10 @@
                         "";
 
 
-                    if (category) {
-
-                        meta.textContent =
-                            game + " • " + category;
-
-                    } else {
-
-                        meta.textContent =
-                            game;
-
-                    }
+                    meta.textContent =
+                        category
+                            ? game + " • " + category
+                            : game;
 
 
                     /*
@@ -779,7 +965,9 @@
                      */
 
                     const title =
-                        document.createElement("h3");
+                        document.createElement(
+                            "h3"
+                        );
 
 
                     title.textContent =
@@ -789,126 +977,4 @@
 
                     /*
                      * Date
-                     */
-
-                    const date =
-                        document.createElement("p");
-
-
-                    date.className =
-                        "article-date";
-
-
-                    if (article.publishedAt) {
-
-                        const publishedDate =
-                            new Date(
-                                article.publishedAt
-                            );
-
-
-                        if (
-                            !isNaN(
-                                publishedDate.getTime()
-                            )
-                        ) {
-
-                            date.textContent =
-                                publishedDate.toLocaleDateString(
-                                    "en-US",
-                                    {
-                                        year: "numeric",
-                                        month: "short",
-                                        day: "numeric"
-                                    }
-                                );
-
-                        }
-
-                    }
-
-
-                    /*
-                     * Read Article button
-                     */
-
-                    const button =
-                        document.createElement("a");
-
-
-                    button.className =
-                        "create-button";
-
-
-                    button.textContent =
-                        "Read Article";
-
-
-                    button.href =
-                        article.url || "#";
-
-
-                    /*
-                     * Build card
-                     */
-
-                    content.appendChild(meta);
-
-                    content.appendChild(title);
-
-
-                    if (date.textContent) {
-
-                        content.appendChild(date);
-
-                    }
-
-
-                    content.appendChild(button);
-
-
-                    card.appendChild(thumbnail);
-
-                    card.appendChild(content);
-
-
-                    container.appendChild(card);
-
-                });
-
-
-            } catch (error) {
-
-                console.error(
-                    "Recent Articles Error:",
-                    error
-                );
-
-
-                container.innerHTML = "";
-
-
-                emptyMessage.style.display =
-                    "block";
-
-
-                emptyMessage.textContent =
-                    "Articles are currently unavailable.";
-
-            }
-
-        }
-
-
-        /*
-         * Load articles when homepage opens.
-         */
-
-        loadRecentArticles();
-
-    </script>
-
-
-</body>
-
-    </html>
+ 
