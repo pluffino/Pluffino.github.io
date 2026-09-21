@@ -977,4 +977,196 @@
 
                     /*
                      * Date
+                     */
+
+                    const date =
+                        document.createElement(
+                            "p"
+                        );
+
+
+                    date.className =
+                        "article-date";
+
+
+                    date.textContent =
+                        formatArticleDate(
+                            article.publishedAt
+                        );
+
+
+                    /*
+                     * Read Article button
+                     */
+
+                    const button =
+                        document.createElement(
+                            "a"
+                        );
+
+
+                    button.className =
+                        "create-button";
+
+
+                    button.textContent =
+                        "Read Article";
+
+
+                    button.href =
+                        article.url || "#";
+
+
+                    /*
+                     * Build card
+                     */
+
+                    content.appendChild(meta);
+
+                    content.appendChild(title);
+
+
+                    if (date.textContent) {
+
+                        content.appendChild(
+                            date
+                        );
+
+                    }
+
+
+                    content.appendChild(button);
+
+
+                    card.appendChild(
+                        thumbnail
+                    );
+
+
+                    card.appendChild(
+                        content
+                    );
+
+
+                    container.appendChild(
+                        card
+                    );
+
+                }
+            );
+
+        }
+
+
+
+        /*
+         * Load all articles from articles.json
+         */
+
+        async function loadArticles() {
+
+            const featuredContainer =
+                document.getElementById(
+                    "featuredArticles"
+                );
+
+
+            const recentContainer =
+                document.getElementById(
+                    "recentArticles"
+                );
+
+
+            const emptyMessage =
+                document.getElementById(
+                    "articlesEmpty"
+                );
+
+
+            try {
+
+                /*
+                 * Cache-busting makes sure newly
+                 * published articles appear quickly.
+                 */
+
+                const response =
+                    await fetch(
+                        "articles.json?v=" +
+                        Date.now()
+                    );
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        "Could not load articles.json"
+                    );
+
+                }
+
+
+                const articles =
+                    await response.json();
+
+
+                /*
+                 * Use the same article data
+                 * for both sections.
+                 */
+
+                loadFeaturedArticles(
+                    articles
+                );
+
+
+                loadLatestArticles(
+                    articles
+                );
+
+
+            } catch (error) {
+
+                console.error(
+                    "Article Loading Error:",
+                    error
+                );
+
+
+                featuredContainer.innerHTML =
+                    '<p class="article-loading">' +
+                    'Featured articles are currently unavailable.' +
+                    '</p>';
+
+
+                recentContainer.innerHTML =
+                    "";
+
+
+                emptyMessage.style.display =
+                    "block";
+
+
+                emptyMessage.textContent =
+                    "Articles are currently unavailable.";
+
+            }
+
+        }
+
+
+
+        /*
+         * Start loading articles.
+         */
+
+        loadArticles();
+
+    </script>
+
+
+</body>
+
+</html>
+
  
