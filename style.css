@@ -923,3 +923,7 @@ main {
         font-size: 30px;
     }
 }
+.article-card {
+    text-decoration: none;
+    color: inherit;
+}
