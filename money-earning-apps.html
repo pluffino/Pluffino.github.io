@@ -70,7 +70,11 @@
     border-radius: 16px;
     overflow: hidden;
     transition: 0.25s ease;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
         }
+
 
         .app-card:hover {
             transform: translateY(-5px);
@@ -79,16 +83,17 @@
         }
 
         .app-image {
-            width: 100%;
-            height: 170px;
-            background: linear-gradient(135deg, #291033, #140817);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #aaa;
-            font-size: 14px;
+    width: 100%;
+    height: 170px;
+    background: linear-gradient(135deg, #291033, #140817);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aaa;
+    font-size: 14px;
+    box-sizing: border-box;
         }
-
+        
         .app-image img {
             width: 100%;
             height: 100%;
@@ -99,10 +104,9 @@
         .app-content {
     padding: 18px;
     box-sizing: border-box;
-    min-height: 260px;
-    display: flex;
-    flex-direction: column;
-            }
+    display: block;
+    width: 100%;
+        }
 
         .app-content h3 {
             color: #ffffff;
@@ -153,23 +157,39 @@
 
         @media (max-width: 600px) {
 
-            .earning-page {
-                width: 94%;
-                padding-top: 20px;
-            }
+    .earning-page {
+        width: 94%;
+        padding-top: 20px;
+    }
 
-            .earning-header h1 {
-                font-size: 30px;
-            }
+    .earning-header h1 {
+        font-size: 30px;
+    }
 
-            .apps-section {
-                padding: 18px;
-            }
+    .apps-section {
+        padding: 18px;
+    }
 
-            .apps-grid {
-                grid-template-columns: 1fr;
+    .apps-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .app-card {
+        display: block;
+        width: 100%;
+    }
+
+    .app-image {
+        width: 100%;
+        height: 190px;
+    }
+
+    .app-content {
+        width: 100%;
+        min-height: 0;
+    }
+
             }
-        }
     </style>
 </head>
 
