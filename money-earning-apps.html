@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,17 +63,21 @@
             gap: 20px;
         }
 
-        .app-card {
-    background: rgba(35, 15, 50, 0.9);
-    border: 1px solid rgba(255, 0, 204, 0.35);
-    border-radius: 16px;
-    overflow: hidden;
-    transition: 0.25s ease;
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
-        }
+        /* APP CARD */
 
+        .app-card {
+            background: rgba(35, 15, 50, 0.9);
+            border: 1px solid rgba(255, 0, 204, 0.35);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: 0.25s ease;
+
+            display: flex;
+            flex-direction: column;
+
+            width: 100%;
+            box-sizing: border-box;
+        }
 
         .app-card:hover {
             transform: translateY(-5px);
@@ -82,18 +85,24 @@
             box-shadow: 0 0 18px rgba(255, 0, 204, 0.25);
         }
 
+        /* IMAGE */
+
         .app-image {
-    width: 100%;
-    height: 170px;
-    background: linear-gradient(135deg, #291033, #140817);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #aaa;
-    font-size: 14px;
-    box-sizing: border-box;
+            width: 100%;
+            height: 190px;
+            background: linear-gradient(135deg, #291033, #140817);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: #aaa;
+            font-size: 14px;
+
+            box-sizing: border-box;
+            flex-shrink: 0;
         }
-        
+
         .app-image img {
             width: 100%;
             height: 100%;
@@ -101,11 +110,17 @@
             display: block;
         }
 
+        /* CONTENT */
+
         .app-content {
-    padding: 18px;
-    box-sizing: border-box;
-    display: block;
-    width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+
+            display: flex;
+            flex-direction: column;
+
+            width: 100%;
+            flex: 1;
         }
 
         .app-content h3 {
@@ -121,23 +136,33 @@
             margin: 0 0 16px;
         }
 
+        /* BUTTON */
+
         .read-button {
-    display: inline-block;
-    width: fit-content;
-    background: #ff00cc;
-    color: #ffffff;
-    text-decoration: none;
-    padding: 12px 20px;
-    border-radius: 10px;
-    font-weight: bold;
-    margin-top: auto;
-    transition: 0.2s ease;
+            display: inline-block;
+            width: fit-content;
+
+            background: #ff00cc;
+            color: #ffffff;
+
+            text-decoration: none;
+
+            padding: 12px 20px;
+            border-radius: 10px;
+
+            font-weight: bold;
+
+            margin-top: auto;
+
+            transition: 0.2s ease;
         }
 
         .read-button:hover {
             background: #bb66ff;
             box-shadow: 0 0 12px rgba(255, 0, 204, 0.5);
         }
+
+        /* BACK HOME */
 
         .back-home {
             display: block;
@@ -155,73 +180,46 @@
             color: #ff00cc;
         }
 
+        /* MOBILE */
+
         @media (max-width: 600px) {
 
-    .earning-page {
-        width: 94%;
-        padding-top: 20px;
-    }
-
-    .earning-header h1 {
-        font-size: 30px;
-    }
-
-    .apps-section {
-        padding: 18px;
-    }
-
-    .apps-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .app-card {
-        display: block;
-        width: 100%;
-    }
-
-    .app-image {
-        width: 100%;
-        height: 190px;
-    }
-
-    .app-content {
-        width: 100%;
-        min-height: 0;
-    }
-
+            .earning-page {
+                width: 94%;
+                padding-top: 20px;
             }
-        /* FIX FREECASH CARD MOBILE LAYOUT */
 
-.app-card {
-    display: block !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-}
+            .earning-header h1 {
+                font-size: 30px;
+            }
 
-.app-card .app-image {
-    display: flex !important;
-    width: 100% !important;
-    height: 190px !important;
-    box-sizing: border-box !important;
-}
+            .apps-section {
+                padding: 18px;
+            }
 
-.app-card .app-image img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-}
+            .apps-grid {
+                grid-template-columns: 1fr;
+            }
 
-.app-card .app-content {
-    display: block !important;
-    width: 100% !important;
-    min-height: auto !important;
-    box-sizing: border-box !important;
-    padding: 20px !important;
-}
+            .app-card {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+            }
 
-.app-card .read-button {
-    display: inline-block !important;
-    margin-top: 20px !important;
+            .app-image {
+                width: 100%;
+                height: 190px;
+            }
+
+            .app-content {
+                width: 100%;
+                padding: 20px;
+            }
+
+            .read-button {
+                margin-top: 20px;
+            }
         }
     </style>
 </head>
@@ -231,7 +229,9 @@
     <main class="earning-page">
 
         <!-- PAGE HEADER -->
+
         <header class="earning-header">
+
             <h1>Money Earning Apps</h1>
 
             <p>
@@ -240,36 +240,48 @@
                 reviews, pros, cons, available regions, and trust information
                 before getting started.
             </p>
+
         </header>
 
 
         <!-- APPS -->
+
         <section class="apps-section">
 
             <h2>Latest Money Earning Apps</h2>
+
 
             <div class="apps-grid">
 
 
                 <!-- FREECASH -->
+
                 <article class="app-card">
 
                     <div class="app-image">
-                        <img src="money-earning-apps/Freecash.jpg"
+
+                        <img
+                            src="money-earning-apps/Freecash.jpg"
+                            alt="Freecash"
+                        >
+
                     </div>
+
 
                     <div class="app-content">
 
                         <h3>Freecash</h3>
 
                         <p>
-                            Learn how Freecash works,what you can earn,
-                            Pros & Cons.Available Regions.Withdrawal 
+                            Learn how Freecash works, what you can earn,
+                            Pros & Cons, Available Regions, and Withdrawal
                             Methods.
                         </p>
 
-                        <!-- We will connect this after creating freecash.html -->
-                        <a href="money-earning-apps/freecash.html" class="read-button">
+                        <a
+                            href="money-earning-apps/freecash.html"
+                            class="read-button"
+                        >
                             Read Article →
                         </a>
 
@@ -278,13 +290,17 @@
                 </article>
 
 
+
                 <!-- SWAGBUCKS -->
+
                 <article class="app-card">
 
                     <div class="app-image">
-                        <!-- Add Swagbucks image here later -->
+
                         Swagbucks Image
+
                     </div>
+
 
                     <div class="app-content">
 
@@ -292,12 +308,14 @@
 
                         <p>
                             Learn how Swagbucks works, and its rewards,
-                            Pros & Cons.Available Regions.Withdrawal 
+                            Pros & Cons, Available Regions, and Withdrawal
                             Methods.
                         </p>
 
-                        <!-- We will connect this after creating swagbucks.html -->
-                        <a href="swagbucks.html" class="read-button">
+                        <a
+                            href="swagbucks.html"
+                            class="read-button"
+                        >
                             Read Article →
                         </a>
 
@@ -312,12 +330,17 @@
 
 
         <!-- BACK TO HOME -->
+
         <div class="back-home">
-            <a href="index.html">← Back to Pluffino Gaming Hub</a>
+
+            <a href="index.html">
+                ← Back to Pluffino Gaming Hub
+            </a>
+
         </div>
+
 
     </main>
 
 </body>
 </html>
-              
